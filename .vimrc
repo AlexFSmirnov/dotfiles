@@ -1,7 +1,7 @@
 ﻿" Reload vimrc
 map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
-" Syntax {
+" Colorscheme {
 syntax enable
 colorscheme default
 highlight LineNr      ctermfg=darkgrey
@@ -92,7 +92,6 @@ map <F5> :call Run()<Enter>
 imap <F5> <Esc>:call Run()<Enter>
 " }
 
-" TODO: rewrite (not like Vanya)
 " Comments {
 func! GetCommentString()
     let str = "#"
