@@ -191,3 +191,6 @@ func! DiffWithHead()
     wincmd w
 endf
 
+func! DiffWithLastSave()
+    :w !cat >> /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
+endf
