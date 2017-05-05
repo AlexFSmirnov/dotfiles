@@ -34,11 +34,9 @@ set splitbelow
 set autoread
 set undofile
 set backspace=indent,eol,start
+set nopaste
 " }
  
-" Used to avoid excess spaces when pasting to vim.
-set pastetoggle=<F3>
-
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
 
@@ -50,6 +48,21 @@ imap jj <Esc>
 map <C-J> 5j
 map <C-K> 5k
 " }
+
+" Function for smart copying and pasting 
+func! SmartCopypaste()
+    if &paste
+        echo "Copypaste mode OFF"
+        set nopaste 
+        set number
+    else
+        echo "Copypaste mode ON"
+        set paste
+        set nonumber
+    endif
+endf
+nmap <F2> :call SmartCopypaste() <Enter>
+imap <F2> <Esc> :call SmartCopypaste() <Enter>
 
 " Compilation functions {
 func! CompileCPP()
