@@ -9,3 +9,4 @@ gcpp() {
     g++ -O2 -std=c++11 -Wall -Wextra -DLOCAL $1 -o ${1%%.*}
 }
 
+alias ip3="python3 -i"

@@ -35,6 +35,9 @@ set autoread
 set undofile
 set backspace=indent,eol,start
 " }
+ 
+" Used to avoid excess spaces when pasting to vim.
+set pastetoggle=<F3>
 
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
@@ -192,5 +195,6 @@ func! DiffWithHead()
 endf
 
 func! DiffWithLastSave()
-    :w !cat >> /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
+    :w !cat > /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
 endf
+
