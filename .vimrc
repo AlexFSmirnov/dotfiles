@@ -14,7 +14,6 @@ highlight Include     ctermfg=red
 " }
 
 " General options {
-set nocompatible
 set autoindent
 set smartindent
 set expandtab
@@ -153,7 +152,7 @@ au FileType c,cpp setlocal comments-=:// comments+=f://
 " }
 
 " Folding {
-map gz HV/{<Enter>%zf:let @/=""<Enter>
+map zz HV/{<Enter>%zf:let @/=""<Enter>
 " }}
 
 set timeoutlen=300
@@ -211,3 +210,26 @@ func! DiffWithLastSave()
     :w !cat > /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
 endf
 
+" Snippets {
+func! InputSnippet()
+    call inputsave()
+    let snippet = input('Enter snippet: ')
+    call inputrestore()
+    
+    so ~/vim-snippets.vim
+    let g:text = GetSnippetText(snippet)
+    call PasteSnippet(g:text)
+endf
+
+func! PasteSnippet(text)
+    if a:text == 'Snippet not found'
+        echo ' - not found'
+    else
+        call setline('.', getline('.') . a:text)
+        s//\r/ge
+    endif
+endf
+
+map <F3> :call InputSnippet() <Enter>
+imap <F3> <Esc> :call InputSnippet() <Enter> i
+" }
