@@ -11,6 +11,8 @@ highlight Statement   ctermfg=red
 highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
+highlight Pmenu       ctermfg=black ctermbg=white
+highlight Pmenusel    ctermfg=white ctermbg=darkgrey
 " }
 
 " General options {
@@ -210,7 +212,7 @@ func! DiffWithLastSave()
     :w !cat > /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
 endf
 
-" Snippets {
+" Snippets {  TODO: Rewrite with autocompletion and snippets in JSON.
 func! InputSnippet()
     call inputsave()
     let snippet = input('Enter snippet: ')
