@@ -214,7 +214,7 @@ func! DiffWithLastSave()
     :w !cat > /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
 endf
 
-" Snippets {  TODO: Rewrite with autocompletion and snippets in JSON.
+" Snippets { 
 func! InputSnippet()
     call inputsave()
     let snippet = input('Enter snippet: ')
