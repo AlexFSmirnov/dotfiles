@@ -1,0 +1,25 @@
+{
+    "init": {
+        "cpp": "#include <iostream>\r#include <fstream>\r\rusing namespace std;\r\rifstream fin(\"${1:file}.in\");\rofstream fout(\"${1:file}.out\");\r\rint main(int argc, char const *argv[]) {\r    ${2:/* code */}\r    \r    return 0;\r}\r",
+        "javascript": "function randint(min, max) {\r    return Math.floor(Math.random() * (max - min + 1)) + min;\r}\r\rfunction genExp() {\r\r    return [txt, ans];\r}\r\rfunction genTask() {\r    task = genExp();\r    \r    curtask += 1;\r    return task;\r}\r\rcurtask = 1;\r\rsblue = \"<strong><font color=''#265A88''>\";\rsred = \"<strong><font color=''red''>\";\rsclose = \"</font></strong>\";\r"
+    },
+    "coutvector": {
+        "cpp": "template<typename T>\rostream& operator<<(ostream& out, vector<T>& vec) {\r    if (vec.size() == 0) {\r        out << \"[]\";\r        return out;\r    }\r    out << ''['';\r    for (unsigned int i = 0; i < vec.size() - 1; i++)\r        out << vec[i] << '','' << '' '';\r    out << vec[vec.size() - 1] << '']'';\r    return out;\r}\r"
+    },
+    "randint": {
+        "javascript": "function randint(min, max) {\r    return Math.floor(Math.random() * (max - min + 1)) + min;\r}\r"
+    },
+    "strformat": {
+        "javascript": "String.prototype.format = function() {\r  var s = this.valueOf();\r  for (var i = 0; i < arguments.length; i++) {\r      var reg = new RegExp(\"\\\\{\" + i + \"\\\\}\", \"gm\");\r      s = s.replace(reg, arguments[i]);\r  }\r  return s;\r}\r"
+    },
+    "gettype": {
+        "javascript": "function get_type(x) {\r    var template = \"palka palki palok\";\r\r    var xs = x.toString();\r    var fc = xs[xs.length - 1];\r    var sc = -1;\r    if (xs.length != 1) sc = xs[xs.length - 2];\r    \r    if (sc != 1 && fc == 1) {\r        return x + \" \" + template.split(\" \")[0];\r    } else if (sc != 1 && (fc == 2 || fc == 3 || fc == 4)) {\r        return x + \" \" + template.split(\" \")[1];\r    } else { \r        return x + \" \" + template.split(\" \")[2];\r    }\r}\r"
+    },
+    "gettypem": {
+        "javascript": "function get_type(x, type) {\r    var templates = [\r        \"palka palki palok\"\r    ];\r        \r    var xs = x.toString();\r    var fc = xs[xs.length - 1];\r    var sc = -1;\r    if (xs.length != 1) sc = xs[xs.length - 2];\r            \r    var template = templates[type];\r    if (sc != 1 && fc == 1) {\r        return x + \" \" + template.split(\" \")[0];\r    } else if (sc != 1 && (fc == 2 || fc == 3 || fc == 4)) {\r        return x + \" \" + template.split(\" \")[1];\r    } else { \r        return x + \" \" + template.split(\" \")[2];\r    }\r}\r"
+    },
+    "arrayshuffle": {
+        "javascript": "Array.prototype.shuffle = function() {\r  var i = this.length, j, temp;\r  if (i == 0) return this;\r  while (--i) {\r     j = Math.floor(Math.random() * (i + 1));\r     temp = this[i];\r     this[i] = this[j];\r     this[j] = temp;\r  }\r  return this;\r}\r"
+    }
+}
+

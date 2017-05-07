@@ -15,6 +15,7 @@ highlight ColorColumn ctermfg=black ctermbg=white
 " }
 
 " General options {
+set nowrap
 set autoindent
 set smartindent
 set expandtab
@@ -234,6 +235,7 @@ endf
 func! Snippify()
     '<,'>s/'/''/ge
     '<,'>s/\\/\\\\/ge
+    '<,'>s/"/\\"/ge
     '<,'>s/\n/\\r/ge
     noh
 endf
