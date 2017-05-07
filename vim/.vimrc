@@ -17,6 +17,7 @@ highlight ColorColumn ctermfg=black ctermbg=white
 " General options {
 set nowrap
 set autoindent
+set autoread
 set smartindent
 set expandtab
 set shiftwidth=4
@@ -223,12 +224,8 @@ func! InputSnippet()
 endf
 
 func! PasteSnippet(text)
-    if a:text == 'Snippet not found'
-        echo ' - not found'
-    else
-        call setline('.', getline('.') . a:text)
-        s//\r/ge
-    endif
+    call setline('.', getline('.') . a:text)
+    s//\r/ge
 endf
 
 " Removes newlines and screens brackets and '\'.
