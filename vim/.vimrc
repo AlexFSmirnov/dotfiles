@@ -11,8 +11,7 @@ highlight Statement   ctermfg=red
 highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
-highlight Pmenu       ctermfg=black ctermbg=white
-highlight Pmenusel    ctermfg=white ctermbg=darkgrey
+highlight ColorColumn ctermfg=black ctermbg=white
 " }
 
 " General options {
@@ -36,6 +35,7 @@ set autoread
 set undofile
 set backspace=indent,eol,start
 set nopaste
+set cc=80
 " }
  
 autocmd BufEnter Makefile set noet
@@ -218,9 +218,7 @@ func! InputSnippet()
     let snippet = input('Enter snippet: ')
     call inputrestore()
     
-    so ~/vim-snippets.vim
-    let g:text = GetSnippetText(snippet)
-    call PasteSnippet(g:text)
+    pyfile ~/vim-snippets.py
 endf
 
 func! PasteSnippet(text)
@@ -230,6 +228,14 @@ func! PasteSnippet(text)
         call setline('.', getline('.') . a:text)
         s//\r/ge
     endif
+endf
+
+" Removes newlines and screens brackets and '\'.
+func! Snippify()
+    '<,'>s/'/''/ge
+    '<,'>s/\\/\\\\/ge
+    '<,'>s/\n/\\r/ge
+    noh
 endf
 
 map <F3> :call InputSnippet() <Enter>

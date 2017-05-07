@@ -1,0 +1,13 @@
+{
+    "randint": {
+        "javascript": "function randint(min, max) {\r    var a = ''hello \\n there'' \r    return Math.floor(Math.random() * (max - min + 1)) + min;\r}\r",
+        "cpp": "why do you need randint?????"
+    },
+    "test": {
+        "python": "Should go to python",
+        "any": "Should go anywhere but python"
+    },
+    "test2": {
+        "python": "Should go to python, but also anywhere else if CAPS."
+    }
+}
