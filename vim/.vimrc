@@ -238,5 +238,5 @@ func! Snippify()
 endf
 
 map <F3> :call InputSnippet() <Enter>
-imap <F3> <Esc> :call InputSnippet() <Enter> i
+vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
 " }
