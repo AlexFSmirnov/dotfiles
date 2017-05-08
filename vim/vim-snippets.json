@@ -1,7 +1,13 @@
 {
     "init": {
-        "cpp": "#include <iostream>\r#include <fstream>\r\rusing namespace std;\r\rifstream fin(\"${1:file}.in\");\rofstream fout(\"${1:file}.out\");\r\rint main(int argc, char const *argv[]) {\r    ${2: }\r    \r    return 0;\r}\r",
-        "javascript": "function randint(min, max) {\r    return Math.floor(Math.random() * (max - min + 1)) + min;\r}\r\rfunction genExp() {\r\r    return [txt, ans];\r}\r\rfunction genTask() {\r    task = genExp();\r    \r    curtask += 1;\r    return task;\r}\r\rcurtask = 1;\r\rsblue = \"<strong><font color=''#265A88''>\";\rsred = \"<strong><font color=''red''>\";\rsclose = \"</font></strong>\";\r"
+        "cpp": "#include <iostream>\r#include <fstream>\r\rusing namespace std;\r\rifstream fin(\"${1:file}.in\");\rofstream fout(\"${1:file}.out\");\r\rint main(int argc, char const *argv[]) {\r    ${i}\r    \r    return 0;\r}\r",
+        "javascript": "function randint(min, max) {\r    return Math.floor(Math.random() * (max - min + 1)) + min;\r}\r\rfunction genExp() {\r    ${}\r    return [txt, ans];\r}\r\rfunction genTask() {\r    task = genExp();\r    \r    curtask += 1;\r    return task;\r}\r\rcurtask = 1;\r\rsblue = \"<strong><font color=''#265A88''>\";\rsred = \"<strong><font color=''red''>\";\rsclose = \"</font></strong>\";\r"
+    },
+    "for": {
+        "cpp": "for (int ${1:i} = ${2:0}; ${1:i} ${3:<} ${4:100}; ${1:i}${5:++}) {\r    ${i}\r}\r"
+    },
+    "sort": {
+        "cpp": "sort(${1:vector}.begin(), ${1:vector}.end())\r"
     },
     "coutvector": {
         "cpp": "template<typename T>\rostream& operator<<(ostream& out, vector<T>& vec) {\r    if (vec.size() == 0) {\r        out << \"[]\";\r        return out;\r    }\r    out << ''['';\r    for (unsigned int i = 0; i < vec.size() - 1; i++)\r        out << vec[i] << '','' << '' '';\r    out << vec[vec.size() - 1] << '']'';\r    return out;\r}\r"

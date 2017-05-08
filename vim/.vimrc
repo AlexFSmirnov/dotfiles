@@ -42,6 +42,7 @@ set cc=80
  
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
+au! FileType python setl nosmartindent
 
 au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
@@ -50,6 +51,7 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 imap jj <Esc>
 map <C-J> 5j
 map <C-K> 5k
+vmap c c<Esc>
 " }
 
 " Function for smart copying and pasting 

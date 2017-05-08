@@ -45,9 +45,12 @@ else:
         paste_snippet(selected_snippet)
         end_line = int(vim.eval("line('.')"))
 
+        # Replacing ${1:templates} with user input.
+        # If nothing was typed, ${1:default} value is used.
         template_re = re.compile("\${[0-9]+:.*?}")
         matches = list(sorted(set(template_re.findall(selected_snippet))))
         for match in matches:
+            # sc_match - screened match. E.g. \ -> \\, * -> \*.
             sc_match = match.replace("/", "\\/").replace("*", "\\*")
             default = re.search(":(.*?)}", sc_match).group(1)
             vim.command("/\\" + sc_match)
@@ -58,9 +61,19 @@ else:
             vim.command("call inputrestore()")
             template_input = vim.eval("template_input")
             if template_input:
-                vim.command("{},{}s/\\{}/{}".format(start_line, end_line,
+                vim.command("{},{}s/\\{}/{}/g".format(start_line, end_line,
                                                     sc_match, template_input))
             else:
-                vim.command("{},{}s/\\{}/{}".format(start_line, end_line,
+                vim.command("{},{}s/\\{}/{}/g".format(start_line, end_line,
                                                     sc_match, default))
+
+        # Placing cursor in ${x} position in snippet and emulating x
+        # keypresses. E.g. if x = 'i', vim will go to insert mode.
+        cursor_re = re.compile("\${[a-zA-Z]*}")
+        match = cursor_re.findall(selected_snippet)
+        if match:
+            match = match[0]
+            keys = re.search("\${([a-zA-Z]*)}", match).group(1)
+            vim.command("{},{}s/\\{}/ ".format(start_line, end_line, match))
+            vim.command("call feedkeys('{}')".format(keys))
 
