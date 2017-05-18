@@ -9,7 +9,7 @@ def paste_snippet(snippet):
 filetype = vim.eval("&filetype")
 input_ = vim.eval("snippet").split(' ')
 input_snippet = input_[0].lower()
-snippets_base = json.loads(open("/home/AlexFSmirnov/vim-snippets.json").read())
+snippets_base = json.loads(open("/home/alexfsmirnov/vim-snippets.json").read())
 
 if input_snippet not in snippets_base.keys():
     print(" - not found.")
@@ -30,11 +30,11 @@ else:
     # There is only one text for one filetype in this snippet,
     # but user wrote snippet codename in CAPS to force paste it.
     elif len(snippet.keys()) == 1 and input_snippet.upper() == input_[0]:
-        selected_snippet = snippet.values()[0]
+        selected_snippet = list(snippet.values())[0]
     else:
         if len(snippet.keys()) == 1:
-            print(" - found one snippet for {}. ".format(snippet.keys()[0]) + 
-                    "Write in CAPS to force paste.")
+            print(" - found one snippet for {}. ".format(
+                    list(snippet.keys())[0]) + "Write in CAPS to force paste.")
         else:
             print(" - found snippet for several other filetypes. " +
                     "Specify filetype to force paste.")

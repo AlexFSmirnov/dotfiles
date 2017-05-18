@@ -4,9 +4,9 @@ map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 " Colorscheme {
 syntax enable
 colorscheme default
-highlight LineNr      ctermfg=darkgrey
+highlight LineNr      ctermfg=grey
 highlight Comment     ctermfg=darkgrey
-highlight String      ctermfg=darkyellow
+highlight String      ctermfg=yellow
 highlight Statement   ctermfg=red
 highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
@@ -222,7 +222,7 @@ func! InputSnippet()
     let snippet = input('Enter snippet: ')
     call inputrestore()
     
-    pyfile ~/vim-snippets.py
+    py3file ~/vim-snippets.py
 endf
 
 func! PasteSnippet(text)
@@ -242,3 +242,5 @@ endf
 map <F3> :call InputSnippet() <Enter>
 vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
 " }
+
+
