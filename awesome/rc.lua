@@ -44,7 +44,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -278,6 +278,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end)
 )
 
+local is_transparent = false 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
@@ -300,7 +301,19 @@ clientkeys = awful.util.table.join(
     -- Power and security
     awful.key({},                    "XF86PowerOff", function () awful.util.spawn("systemctl suspend") end),
     awful.key({ modkey },            "XF86PowerOff", function () awful.util.spawn("xtrlock") end),
-    awful.key({ modkey, "Shift" },   "XF86PowerOff", function () awful.util.spawn("xtrlock -b") end)
+    awful.key({ modkey, "Shift" },   "XF86PowerOff", function () awful.util.spawn("xtrlock -b") end),
+
+    -- Transparency. TODO: change transparency feature.
+    awful.key({ modkey, "Shift" },   "t",
+        function ()
+            is_transparent = not is_transparent
+            if is_transparent then
+                awful.util.spawn("compton")
+            else 
+                awful.util.spawn("killall compton")
+            end
+        end)
+                  
 )
 
 -- Bind all key numbers to tags.
