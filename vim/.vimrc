@@ -12,6 +12,7 @@ highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
 highlight ColorColumn ctermfg=black ctermbg=white
+highlight Search      ctermbg=darkgrey
 " }
 
 " General options {
