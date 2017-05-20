@@ -253,3 +253,9 @@ endf
 vmap <F7> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
 " }
 
+" Copy visual selection {
+func! CopyVisualSelection()
+    py3file ~/vim-copyselection.py
+endf
+vmap <F8> :<BS><BS><BS><BS><BS>call CopyVisualSelection() <Enter>
+" }
