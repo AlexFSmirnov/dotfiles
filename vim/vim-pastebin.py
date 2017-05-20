@@ -1,4 +1,4 @@
-import vim, requests
+import vim, requests, pyperclip
 
 
 def get_range():
@@ -26,5 +26,9 @@ r = requests.post(url, dict(
     api_paste_code=get_range(),
     api_paste_private="1",
     api_paste_format=vim.eval("&filetype")))
-print(r.text)
 
+vim.command("let cp = input('{}. Copy to clipboard? (y/N) ')".format(r.text))
+cp = vim.eval("cp")
+if cp.lower() == 'y':
+    pyperclip.copy(r.text)
+    print(" Copy success.")
