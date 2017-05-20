@@ -10,3 +10,5 @@ gcpp() {
 }
 
 alias ip3="python3 -i"
+
+alias susp="systemctl suspend"
