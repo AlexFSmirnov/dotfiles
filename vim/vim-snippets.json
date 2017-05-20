@@ -26,6 +26,9 @@
     },
     "arrayshuffle": {
         "javascript": "Array.prototype.shuffle = function() {\r  var i = this.length, j, temp;\r  if (i == 0) return this;\r  while (--i) {\r     j = Math.floor(Math.random() * (i + 1));\r     temp = this[i];\r     this[i] = this[j];\r     this[j] = temp;\r  }\r  return this;\r}\r"
+    },
+    "vimgetrange": {
+        "python": "def get_range():\r    buf = vim.current.buffer\r    (lnum1, col1) = buf.mark(''<'')\r    (lnum2, col2) = buf.mark(''>'')\r    lines = vim.eval(''getline({}, {})''.format(lnum1, lnum2))\r    if len(lines) == 1:\r        lines[0] = lines[0][col1:col2 + 1]\r    else:\r        lines[0] = lines[0][col1:]\r        lines[-1] = lines[-1][:col2 + 1]\r    return \"\\n\".join(lines)\r"
     }
 }
 
