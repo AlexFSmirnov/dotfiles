@@ -11,8 +11,8 @@ highlight Statement   ctermfg=red
 highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
-highlight ColorColumn ctermfg=black ctermbg=white
 highlight Search      ctermbg=darkgrey
+highlight MyColorC    ctermbg=grey
 " }
 
 " General options {
@@ -38,8 +38,10 @@ set autoread
 set undofile
 set backspace=indent,eol,start
 set nopaste
-set cc=80
+set mouse=a
 " }
+
+match MyColorC /\%<81v.\%>80v/
  
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
