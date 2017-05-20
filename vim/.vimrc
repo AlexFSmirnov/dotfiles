@@ -246,4 +246,10 @@ map <F3> :call InputSnippet() <Enter>
 vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
 " }
 
+" Paste to pastebin {
+func! PasteToPastebin()
+    py3file ~/vim-pastebin.py
+endf
+vmap <F7> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
+" }
 
