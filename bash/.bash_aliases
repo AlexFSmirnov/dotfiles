@@ -12,3 +12,7 @@ gcpp() {
 alias ip3="python3 -i"
 
 alias susp="systemctl suspend"
+alias xcopy="xclip -selection clipboard"
+
+export ALARM_SOUND=/usr/share/sounds/ubuntu/ringtones/Alarm\\\ clock.ogg
+alias alarm="paplay $ALARM_SOUND"
