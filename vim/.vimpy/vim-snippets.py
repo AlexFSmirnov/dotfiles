@@ -9,7 +9,8 @@ def paste_snippet(snippet):
 filetype = vim.eval("&filetype")
 input_ = vim.eval("snippet").split(' ')
 input_snippet = input_[0].lower()
-snippets_base = json.loads(open("/home/alexfsmirnov/vim-snippets.json").read())
+snippet_path = "/home/alexfsmirnov/.vimpy/vim-snippets.json"
+snippets_base = json.loads(open(snippet_path).read())
 
 if input_snippet not in snippets_base.keys():
     print(" - not found.")

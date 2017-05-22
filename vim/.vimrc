@@ -230,7 +230,7 @@ func! InputSnippet()
     let snippet = input('Enter snippet: ')
     call inputrestore()
     
-    py3file ~/vim-snippets.py
+    py3file ~/.vimpy/vim-snippets.py
 endf
 
 func! PasteSnippet(text)
@@ -253,14 +253,14 @@ vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
 
 " Paste to pastebin {
 func! PasteToPastebin()
-    py3file ~/vim-pastebin.py
+    py3file ~/.vimpy/vim-pastebin.py
 endf
 vmap <F7> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
 " }
 
 " Copy visual selection {
 func! CopyVisualSelection()
-    py3file ~/vim-copyselection.py
+    py3file ~/.vimpy/vim-copyselection.py
 endf
 vmap <F8> :<BS><BS><BS><BS><BS>call CopyVisualSelection() <Enter>
 " }
