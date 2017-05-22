@@ -42,6 +42,11 @@ set mouse=a
 " }
 
 match MyColorC /\%<81v.\%>80v/
+
+" Backup files
+set directory=~/.vim/swapfiles//
+set backupdir=~/.vim/backups//
+set undodir=~/.vim/undodir//
  
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
