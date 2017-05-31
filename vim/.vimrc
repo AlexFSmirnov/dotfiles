@@ -11,7 +11,7 @@ highlight Statement   ctermfg=red
 highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
-highlight Search      ctermbg=darkgrey
+highlight Search      ctermbg=green ctermfg=white
 highlight MyColorC    ctermbg=grey
 " }
 
@@ -255,7 +255,7 @@ vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
 func! PasteToPastebin()
     py3file ~/.vimpy/vim-pastebin.py
 endf
-vmap <F7> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
+vmap <F10> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
 " }
 
 " Copy visual selection {
@@ -263,4 +263,10 @@ func! CopyVisualSelection()
     py3file ~/.vimpy/vim-copyselection.py
 endf
 vmap <F8> :<BS><BS><BS><BS><BS>call CopyVisualSelection() <Enter>
+" }
+
+" Parse FB TZ to python. {
+func! ParseFB() 
+    py3file ~/.vimpy/parsefb.py
+endf
 " }
