@@ -15,6 +15,25 @@ highlight Search      ctermbg=green ctermfg=white
 highlight MyColorC    ctermbg=grey ctermfg=darkgrey
 " }
 
+" Vundle stuff (:PluginInstall to install plugins) {
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'mbbill/undotree'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-latex/vim-latex'
+let g:tex_flavor='latex'
+
+call vundle#end()
+filetype plugin indent on
+" }
+
 " General options {
 set nowrap
 set autoindent
