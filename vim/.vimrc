@@ -12,7 +12,7 @@ highlight Function    ctermfg=green
 highlight Number      ctermfg=magenta
 highlight Include     ctermfg=red
 highlight Search      ctermbg=green ctermfg=white
-highlight MyColorC    ctermbg=grey
+highlight MyColorC    ctermbg=grey ctermfg=darkgrey
 " }
 
 " General options {
@@ -97,6 +97,9 @@ endf
 func! RunPython()
     :!python3 %
 endf
+func! RunIPython()
+    :!python3 -i %
+endf
 func! RunBash()
     :!bash %
 endf
@@ -117,6 +120,8 @@ endf
 " Run/compile mappings {
 map <F9> :call Compile()<Enter>
 imap <F9> <Esc>:call Compile()<Enter>
+map <F4> :call RunIPython()<Enter>
+imap <F4> <Esc>:call RunIPython()<Enter>
 map <F5> :call Run()<Enter>
 imap <F5> <Esc>:call Run()<Enter>
 " }
@@ -268,5 +273,11 @@ vmap <F8> :<BS><BS><BS><BS><BS>call CopyVisualSelection() <Enter>
 " Parse FB TZ to python. {
 func! ParseFB() 
     py3file ~/.vimpy/parsefb.py
+endf
+" }
+
+" Transform image file from current line to Base64. {
+func! ImageToBase64() 
+    py3file ~/.vimpy/vim-im2b64.py
 endf
 " }
