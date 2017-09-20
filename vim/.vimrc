@@ -4,15 +4,21 @@ map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 " Colorscheme {
 syntax enable
 colorscheme default
-highlight LineNr      ctermfg=grey
-highlight Comment     ctermfg=darkgrey
-highlight String      ctermfg=yellow
-highlight Statement   ctermfg=red
-highlight Function    ctermfg=green
-highlight Number      ctermfg=magenta
-highlight Include     ctermfg=red
-highlight Search      ctermbg=green ctermfg=white
-highlight MyColorC    ctermbg=grey ctermfg=darkgrey
+highlight LineNr        ctermfg=grey
+highlight Comment       ctermfg=darkgrey
+highlight String        ctermfg=yellow
+highlight Statement     ctermfg=red
+highlight Function      ctermfg=green
+highlight Number        ctermfg=magenta
+highlight Include       ctermfg=red
+highlight Search        ctermfg=white     ctermbg=green
+highlight MyColorC      ctermfg=darkgrey  ctermbg=grey 
+highlight VertSplit     ctermfg=cyan      ctermbg=darkgrey cterm=NONE
+highlight StatusLine    ctermfg=cyan      ctermbg=darkgrey cterm=NONE
+highlight StatusLineNC  ctermfg=white     ctermbg=darkgrey cterm=NONE
+highlight TabLine       ctermfg=white     ctermbg=black    cterm=NONE
+highlight TabLineSel    ctermfg=cyan      ctermbg=darkgrey cterm=bold
+highlight TabLineFill   ctermfg=darkgrey
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
@@ -28,7 +34,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-latex/vim-latex'
-let g:tex_flavor='latex'
+Plugin 'wesQ3/vim-windowswap'
 
 call vundle#end()
 filetype plugin indent on
@@ -73,6 +79,8 @@ au! FileType python setl nosmartindent
 
 au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
+
+let g:leaderkey='\'
 
 " General mappings {
 imap jj <Esc>
