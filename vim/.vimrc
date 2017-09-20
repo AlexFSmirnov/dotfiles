@@ -1,6 +1,9 @@
 ﻿" Reload vimrc
 map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
+let g:leaderkey='\'
+let g:vim_markdown_folding_disabled = 1
+
 " Colorscheme {
 syntax enable
 colorscheme default
@@ -32,9 +35,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
+Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-latex/vim-latex'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()
 filetype plugin indent on
@@ -80,13 +86,13 @@ au! FileType python setl nosmartindent
 au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 
-let g:leaderkey='\'
-
 " General mappings {
 imap jj <Esc>
 map <C-J> 5j
 map <C-K> 5k
-vmap c c<Esc>
+vmap cc <Esc>
+map <F6> :NERDTreeClose <Enter> :UndotreeToggle <Enter>
+map <F8> :UndotreeHide <Enter> :NERDTreeToggle <Enter>
 " }
 
 " Function for smart copying and pasting 
@@ -288,13 +294,6 @@ func! PasteToPastebin()
     py3file ~/.vimpy/vim-pastebin.py
 endf
 vmap <F10> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
-" }
-
-" Copy visual selection {
-func! CopyVisualSelection()
-    py3file ~/.vimpy/vim-copyselection.py
-endf
-vmap <F8> :<BS><BS><BS><BS><BS>call CopyVisualSelection() <Enter>
 " }
 
 " Parse FB TZ to python. {
