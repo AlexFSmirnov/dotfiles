@@ -89,8 +89,8 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 
 " General mappings {
 imap jj <Esc>
-map <C-J> 5j
-map <C-K> 5k
+map <C-j> 5j
+map <C-k> 5k
 vmap cc <Esc>
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
 map <F8> :UndotreeHide <Enter> :NERDTreeTabsToggle <Enter>
