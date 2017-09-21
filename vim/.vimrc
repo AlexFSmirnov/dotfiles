@@ -36,6 +36,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-latex/vim-latex'
@@ -91,8 +92,8 @@ imap jj <Esc>
 map <C-J> 5j
 map <C-K> 5k
 vmap cc <Esc>
-map <F6> :NERDTreeClose <Enter> :UndotreeToggle <Enter>
-map <F8> :UndotreeHide <Enter> :NERDTreeToggle <Enter>
+map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
+map <F8> :UndotreeHide <Enter> :NERDTreeTabsToggle <Enter>
 " }
 
 " Function for smart copying and pasting 
