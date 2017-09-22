@@ -27,6 +27,7 @@ highlight TabLineFill   ctermfg=238
 highlight Folded        ctermfg=cyan      ctermbg=darkgrey
 highlight Pmenu         ctermfg=grey      ctermbg=black
 highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
+highlight MatchParen    ctermfg=cyan      ctermbg=darkgrey
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
