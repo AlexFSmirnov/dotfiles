@@ -17,7 +17,7 @@ highlight Function      ctermfg=green
 highlight Number        ctermfg=magenta
 highlight Include       ctermfg=red
 highlight Search        ctermfg=white     ctermbg=green
-highlight MyColorC      ctermfg=darkgrey  ctermbg=grey 
+highlight MyColorC      ctermfg=238       ctermbg=grey     cterm=bold
 highlight VertSplit     ctermfg=cyan      ctermbg=238      cterm=NONE
 highlight StatusLine    ctermfg=cyan      ctermbg=238      cterm=bold
 highlight StatusLineNC  ctermfg=white     ctermbg=238      cterm=NONE
@@ -28,6 +28,7 @@ highlight Folded        ctermfg=cyan      ctermbg=darkgrey
 highlight Pmenu         ctermfg=grey      ctermbg=black
 highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
 highlight MatchParen    ctermfg=cyan      ctermbg=darkgrey
+highlight Visual        ctermbg=238
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
