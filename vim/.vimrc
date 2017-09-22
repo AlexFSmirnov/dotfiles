@@ -18,12 +18,12 @@ highlight Number        ctermfg=magenta
 highlight Include       ctermfg=red
 highlight Search        ctermfg=white     ctermbg=green
 highlight MyColorC      ctermfg=darkgrey  ctermbg=grey 
-highlight VertSplit     ctermfg=cyan      ctermbg=darkgrey cterm=NONE
-highlight StatusLine    ctermfg=cyan      ctermbg=darkgrey cterm=NONE
-highlight StatusLineNC  ctermfg=white     ctermbg=darkgrey cterm=NONE
-highlight TabLine       ctermfg=white     ctermbg=233      cterm=NONE
-highlight TabLineSel    ctermfg=cyan      ctermbg=black    cterm=bold
-highlight TabLineFill   ctermfg=233
+highlight VertSplit     ctermfg=cyan      ctermbg=238      cterm=NONE
+highlight StatusLine    ctermfg=cyan      ctermbg=238      cterm=bold
+highlight StatusLineNC  ctermfg=white     ctermbg=238      cterm=NONE
+highlight TabLine       ctermfg=white     ctermbg=238      cterm=NONE
+highlight TabLineSel    ctermfg=cyan      ctermbg=233      cterm=bold
+highlight TabLineFill   ctermfg=238
 highlight Folded        ctermfg=cyan      ctermbg=darkgrey
 highlight Pmenu         ctermfg=grey      ctermbg=black
 highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
