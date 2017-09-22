@@ -3,10 +3,12 @@ map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
 let g:leaderkey='\'
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
 
 " Colorscheme {
 syntax enable
 colorscheme default
+set t_Co=256
 highlight LineNr        ctermfg=grey
 highlight Comment       ctermfg=darkgrey
 highlight String        ctermfg=yellow
@@ -19,9 +21,12 @@ highlight MyColorC      ctermfg=darkgrey  ctermbg=grey
 highlight VertSplit     ctermfg=cyan      ctermbg=darkgrey cterm=NONE
 highlight StatusLine    ctermfg=cyan      ctermbg=darkgrey cterm=NONE
 highlight StatusLineNC  ctermfg=white     ctermbg=darkgrey cterm=NONE
-highlight TabLine       ctermfg=white     ctermbg=black    cterm=NONE
-highlight TabLineSel    ctermfg=cyan      ctermbg=darkgrey cterm=bold
-highlight TabLineFill   ctermfg=darkgrey
+highlight TabLine       ctermfg=white     ctermbg=233      cterm=NONE
+highlight TabLineSel    ctermfg=cyan      ctermbg=black    cterm=bold
+highlight TabLineFill   ctermfg=233
+highlight Folded        ctermfg=cyan      ctermbg=darkgrey
+highlight Pmenu         ctermfg=grey      ctermbg=black
+highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
@@ -92,6 +97,7 @@ imap jj <Esc>
 map <C-j> 5j
 map <C-k> 5k
 vmap cc <Esc>
+map ; :
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
 map <F8> :UndotreeHide <Enter> :NERDTreeTabsToggle <Enter>
 " }
