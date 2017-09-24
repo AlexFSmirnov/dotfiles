@@ -4,6 +4,8 @@ map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 let g:leaderkey='\'
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Colorscheme {
 syntax enable
