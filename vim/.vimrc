@@ -131,6 +131,8 @@ func! Compile()
     :write
     if &filetype == "cpp"
         call CompileCPP()
+    elseif &filetype == "pascal"
+        :!pc %
     else
         echo "Not appropriate file type"
     endif
@@ -156,7 +158,7 @@ func! Run()
     elseif &filetype == "sh" || &filetype == "bash"
         call RunBash()
     else
-        :!%<
+        :!./%<
     endif
 endf
 " }
