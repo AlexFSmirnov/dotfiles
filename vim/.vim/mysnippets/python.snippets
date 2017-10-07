@@ -1,6 +1,20 @@
-import vim, pyperclip
+snippet linp "Input many int values separated by spaces"
+list(map(int, input().split()))
+endsnippet
 
+snippet e8 "Encode to UTF-8" i
+encode("utf8")$0
+endsnippet
 
+snippet d8 "Decode as UTF-8" i
+decode("utf8")$0
+endsnippet
+
+snippet md5 "Get MD5"
+str(md5($1).hexdigest())$0
+endsnippet
+
+snippet vimgetrange "Return selected text in vim"
 def get_range():
     buf = vim.current.buffer
     (lnum1, col1) = buf.mark('<')
@@ -12,7 +26,5 @@ def get_range():
         lines[0] = lines[0][col1:]
         lines[-1] = lines[-1][:col2 + 1]
     return "\n".join(lines)
-
-
-pyperclip.copy(get_range())
-print("Copy success")
+$0
+endsnippet

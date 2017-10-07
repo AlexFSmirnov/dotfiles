@@ -1,0 +1,45 @@
+snippet init "Default code for cpp"
+#include <iostream>
+#include <fstream>
+${1:
+#define forn(i, n) for (int i = 0; i < (int)(n); i++)
+#define ford(i, n) for (int i = (int)(n); i >= 0; i--)
+#define fore(i, b, e) for (int i = (int)(s); i < (int)(e); i++)
+}
+using namespace std;
+${2:
+ifstream fin("${3:file}.in");
+ofstream fout("$3.out");
+}
+int main(int argc, char const *argv[]) {
+    $0
+    return 0;
+}
+endsnippet
+
+snippet sort "Vector sorting"
+sort(${1:vector}.begin(), $1.end());
+endsnippet
+snippet "(\w+).sort" "Vector sorting" r
+sort(`!p snip.rv=match.group(1)`.begin(), `!p snip.rv=match.group(1)`.end());$0
+endsnippet
+
+snippet "(\(.+?\)).print" "Transforms to cout" r
+cout << `!p snip.rv = match.group(1)[1:-1].replace(", ", " << ' ' << ")` << endl;$0
+endsnippet
+
+snippet coutvector "Template for printing vectors to standard output"
+template<typename T>
+ostream& operator<<(ostream& out, vector<T>& vec) {
+    if (vec.size() == 0) {
+        out << "[]";
+        return out;
+    }
+    out << '[';
+    for (unsigned int i = 0; i < vec.size() - 1; i++)
+        out << vec[i] << ',' << ' ';
+    out << vec[vec.size() - 1] << ']';
+    return out;
+}
+endsnippet
+

@@ -288,48 +288,15 @@ func! DiffWithLastSave()
     :w !cat > /tmp/tempFile && vimdiff % /tmp/tempFile && rm /tmp/tempFile
 endf
 
-" Snippets { 
-func! InputSnippet()
-    call inputsave()
-    let snippet = input('Enter snippet: ')
-    call inputrestore()
-    
-    py3file ~/.vimpy/vim-snippets.py
-endf
-
-func! PasteSnippet(text)
-    call setline('.', getline('.') . a:text)
-    s//\r/ge
-endf
-
-" Removes newlines and screens brackets and '\'.
-func! Snippify()
-    '<,'>s/'/''/ge
-    '<,'>s/\\/\\\\/ge
-    '<,'>s/"/\\"/ge
-    '<,'>s/\n/\\r/ge
-    noh
-endf
-
-map <F3> :call InputSnippet() <Enter>
-vmap <F3> :<BS><BS><BS><BS><BS>call Snippify() <Enter>
-" }
-
 " Paste to pastebin {
 func! PasteToPastebin()
-    py3file ~/.vimpy/vim-pastebin.py
+    py3file ~/.vim/vimpy/vim-pastebin.py
 endf
 vmap <F10> :<BS><BS><BS><BS><BS>call PasteToPastebin() <Enter>
 " }
 
-" Parse FB TZ to python. {
-func! ParseFB() 
-    py3file ~/.vimpy/parsefb.py
-endf
-" }
-
 " Transform image file from current line to Base64. {
 func! ImageToBase64() 
-    py3file ~/.vimpy/vim-im2b64.py
+    py3file ~/.vim/vimpy/vim-im2b64.py
 endf
 " }

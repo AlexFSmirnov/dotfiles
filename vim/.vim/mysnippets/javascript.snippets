@@ -1,0 +1,96 @@
+snippet init "Default code for JS" 
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+${1:
+function genExp() {
+    $2
+    return [txt, ans];
+}
+}
+function genTask() {
+    task = genExp();
+    $0
+    curtask += 1;
+    return task;
+}
+
+curtask = 1;
+
+sblue = "<strong><font color='#265A88'>";
+sred = "<strong><font color='red'>";
+sclose = "</font></strong>";
+endsnippet
+
+snippet randint "Randint function for JS"
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}$0
+endsnippet
+
+snippet strformat "Format function for strings"
+String.prototype.format = function() {
+  var s = this.valueOf();
+  for (var i = 0; i < arguments.length; i++) {
+      var reg = new RegExp("\\{" + i + "\\}", "gm");
+      s = s.replace(reg, arguments[i]);
+  }
+  return s;
+}$0
+endsnippet
+
+snippet gettype "Changes word form depending on amount (1)"
+function get_type(x) {
+    var template = "${1:palka palki palok}";
+
+    var xs = x.toString();
+    var fc = xs[xs.length - 1];
+    var sc = -1;
+    if (xs.length != 1) sc = xs[xs.length - 2];
+    
+    if (sc != 1 && fc == 1) {
+        return x + " " + template.split(" ")[0];
+    } else if (sc != 1 && (fc == 2 || fc == 3 || fc == 4)) {
+        return x + " " + template.split(" ")[1];
+    } else { 
+        return x + " " + template.split(" ")[2];
+    }
+}$0
+endsnippet
+
+snippet gettypem "Changes word form depending on amount (multiple)"
+function get_type(x, type) {
+    var templates = [
+        "${1:palka palki palok}"$2
+    ];
+        
+    var xs = x.toString();
+    var fc = xs[xs.length - 1];
+    var sc = -1;
+    if (xs.length != 1) sc = xs[xs.length - 2];
+            
+    var template = templates[type];
+    if (sc != 1 && fc == 1) {
+        return x + " " + template.split(" ")[0];
+    } else if (sc != 1 && (fc == 2 || fc == 3 || fc == 4)) {
+        return x + " " + template.split(" ")[1];
+    } else { 
+        return x + " " + template.split(" ")[2];
+    }
+}$0
+endsnippet
+
+snippet arrayshuffle "Method to shuffle an array"
+Array.prototype.shuffle = function() {
+  var i = this.length, j, temp;
+  if (i == 0) return this;
+  while (--i) {
+     j = Math.floor(Math.random() * (i + 1));
+     temp = this[i];
+     this[i] = this[j];
+     this[j] = temp;
+  }
+  return this;
+}$0
+endsnippet
+
