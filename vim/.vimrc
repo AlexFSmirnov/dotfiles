@@ -1,12 +1,6 @@
 ﻿" Reload vimrc
 map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
-let g:leaderkey='\'
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 " Colorscheme {
 syntax enable
 colorscheme default
@@ -18,7 +12,7 @@ highlight Statement     ctermfg=red
 highlight Function      ctermfg=green
 highlight Number        ctermfg=magenta
 highlight Include       ctermfg=red
-highlight Search        ctermfg=white     ctermbg=green
+highlight Search        ctermfg=darkgrey  ctermbg=cyan     cterm=bold
 highlight MyColorC      ctermfg=238       ctermbg=grey     cterm=bold
 highlight VertSplit     ctermfg=cyan      ctermbg=238      cterm=NONE
 highlight StatusLine    ctermfg=cyan      ctermbg=238      cterm=bold
@@ -43,6 +37,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -55,6 +51,23 @@ Plugin 'pangloss/vim-javascript'
 call vundle#end()
 filetype plugin indent on
 " }
+
+" Plugin settings {
+let g:leaderkey='\'
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+let g:UltiSnipsExpandTrigger="<c-d>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+"}
 
 " General options {
 set nowrap
@@ -158,7 +171,7 @@ func! Run()
     elseif &filetype == "sh" || &filetype == "bash"
         call RunBash()
     else
-        :!./%<
+        :!%:p:r
     endif
 endf
 " }
