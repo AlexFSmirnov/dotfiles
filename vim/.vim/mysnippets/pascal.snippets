@@ -1,7 +1,18 @@
 snippet init "Default code for Pascal"
-program `!p snip.rv = vim.eval("expand('%:r')").title()`
-
+program `!p snip.rv = vim.eval("expand('%:r')").title()`;
+${1:uses math;
+}
+${2:var $3
+}
 BEGIN
     $0
 END.
+endsnippet
+
+snippet "(\(.+?\)).print" "Transforms to writeln" r
+writeln(`!p snip.rv = match.group(1)[1:-1].replace(", ", ", ' ', ")`);$0
+endsnippet
+
+snippet :li "Longint"
+: longint;
 endsnippet
