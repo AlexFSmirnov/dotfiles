@@ -145,7 +145,7 @@ func! Compile()
     if &filetype == "cpp"
         call CompileCPP()
     elseif &filetype == "pascal"
-        :!pc %
+        :!pc -Sd %
     else
         echo "Not appropriate file type"
     endif
