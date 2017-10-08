@@ -1,5 +1,6 @@
 snippet "(\w+).inp" "Input snigle int value" r
 `!p snip.rv = match.group(1)` = int(input())
+
 endsnippet
 snippet linp "Input many int values separated by spaces"
 list(map(int, input().split()))
@@ -10,7 +11,7 @@ indent = int(vim.eval('indent(".")'))
 snip.rv = "{} = int(input())\n".format(values[0])
 for v in values[1:]:
     snip.rv += "{}{} = int(input())\n".format(' ' * indent, v);
-snip.rv = snip.rv[:-1]`
+snip.rv += ' ' * indent`
 endsnippet
 
 snippet e8 "Encode to UTF-8" i

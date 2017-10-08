@@ -15,10 +15,12 @@ endsnippet
 
 snippet "(\(.+?\)).print" "Transforms to writeln" r
 writeln(`!p snip.rv = match.group(1)[1:-1].replace(", ", ", ' ', ")`);
+
 endsnippet
 
 snippet "(\w+).rl" "Readline snigle value" r
 readln(`!p snip.rv = match.group(1)`);
+
 endsnippet
 snippet "(\(.+?\)).rl" "Readline multiple values" r
 readln(`!p snip.rv = match.group(1)[1:-1]`);
@@ -29,6 +31,6 @@ indent = int(vim.eval('indent(".")'))
 snip.rv = "readln({});\n".format(values[0])
 for v in values[1:]:
     snip.rv += "{}readln({});\n".format(' ' * indent, v);
-snip.rv = snip.rv[:-1]`
+snip.rv += ' ' * indent`
 endsnippet
 

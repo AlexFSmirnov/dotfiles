@@ -21,18 +21,22 @@ snippet sort "Vector sorting"
 sort(${1:vector}.begin(), $1.end());
 endsnippet
 snippet "(\w+).sort" "Vector sorting" r
-sort(`!p snip.rv=match.group(1)`.begin(), `!p snip.rv=match.group(1)`.end());$0
+sort(`!p snip.rv=match.group(1)`.begin(), `!p snip.rv=match.group(1)`.end());
+
 endsnippet
 
 snippet "(\(.+?\)).print" "Transforms to cout" r
-cout << `!p snip.rv = match.group(1)[1:-1].replace(", ", " << ' ' << ")` << endl;$0
+cout << `!p snip.rv = match.group(1)[1:-1].replace(", ", " << ' ' << ")` << endl;
+
 endsnippet
 
 snippet "(\w+).cin" "Cin snigle value" r
 cin >> `!p snip.rv = match.group(1)`;
+
 endsnippet
 snippet "(\(.+?\)).cin" "Cin multiple values" r
 cin >> `!p snip.rv = match.group(1)[1:-1].replace(", ", " >> ")`;
+
 endsnippet
 snippet "(\(.+?\)).cinm" "Readlines multiple values" r
 `!p values = match.group(1)[1:-1].split(", ")
@@ -40,7 +44,7 @@ indent = int(vim.eval('indent(".")'))
 snip.rv = "cin >> {};\n".format(values[0])
 for v in values[1:]:
     snip.rv += "{}cin >> {};\n".format(' ' * indent, v);
-snip.rv = snip.rv[:-1]`
+snip.rv += ' ' * indent`
 endsnippet
 
 snippet coutvector "Template for printing vectors to standard output"
