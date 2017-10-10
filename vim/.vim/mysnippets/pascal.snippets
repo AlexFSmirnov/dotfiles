@@ -2,15 +2,16 @@ snippet init "Default code for Pascal"
 program `!p snip.rv = vim.eval("expand('%:r')").title()`;
 ${1:uses math;
 }
-var $2
+var
+    $2
  
 BEGIN
     $0
 END.
 endsnippet
 
-snippet :li "Longint"
-: longint;
+snippet li "Longint"
+longint
 endsnippet
 
 snippet "(\(.+?\)).print" "Transforms to writeln" r
