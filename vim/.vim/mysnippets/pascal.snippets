@@ -1,10 +1,11 @@
 snippet init "Default code for Pascal"
 program `!p snip.rv = vim.eval("expand('%:r')").title()`;
-${1:uses math;
-}
-var
+${1:uses
     $2
- 
+}
+${3:var
+    $4
+}
 BEGIN
     $0
 END.
