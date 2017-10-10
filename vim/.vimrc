@@ -47,6 +47,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-latex/vim-latex'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'pangloss/vim-javascript'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 filetype plugin indent on
