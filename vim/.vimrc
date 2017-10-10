@@ -268,7 +268,6 @@ func! SubSwap(arg1, arg2, ...)
     exec S . 'ADFLJWERFASDFWERWAFDASFEWR/' . a:arg2 . '/g'
 endf
 
-
 " Adequate syntax hl when using vimdiff 
 highlight DiffAdd    cterm=none ctermfg=10 ctermbg=4 gui=none guifg=bg guibg=Red
 highlight DiffDelete cterm=none ctermfg=10 ctermbg=4 gui=none guifg=bg guibg=Red
