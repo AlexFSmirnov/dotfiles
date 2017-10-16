@@ -39,6 +39,23 @@ String.prototype.format = function() {
 }$0
 endsnippet
 
+snippet httpget "Function to get parameters from HTTP GET request"
+function get_search_parameters() {
+    var prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}
+
+function transformToAssocArray(prmstr) {
+    var params = {};
+    var prmarr = prmstr.split("&");
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
+}
+endsnippet
+
 snippet gettype "Changes word form depending on amount (1)"
 function get_type(x) {
     var template = "${1:palka palki palok}";
