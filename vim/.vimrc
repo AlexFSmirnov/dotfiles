@@ -20,7 +20,7 @@ highlight StatusLineNC  ctermfg=white     ctermbg=238      cterm=NONE
 highlight TabLine       ctermfg=white     ctermbg=238      cterm=NONE
 highlight TabLineSel    ctermfg=cyan      ctermbg=233      cterm=bold
 highlight TabLineFill   ctermfg=238
-highlight Folded        ctermfg=cyan      ctermbg=238
+highlight Folded        ctermfg=cyan      ctermbg=233
 highlight Pmenu         ctermfg=grey      ctermbg=black
 highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
 highlight MatchParen    ctermfg=cyan      ctermbg=darkgrey
