@@ -115,3 +115,7 @@ fi
 # Making TAB to cycle through variants, thought still show them all.
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
+
+# Colored G++ output.
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
