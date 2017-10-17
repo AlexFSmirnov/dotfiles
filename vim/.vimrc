@@ -138,7 +138,7 @@ imap <F2> <Esc> :call SmartCopypaste() <Enter>
 " Compilation functions {
 let g:clearrun = 1
 func! CompileCPP()
-    let $CXXFLAGS = "-O2 -std=c++11 -Wall -Wextra -DLOCAL "
+    let $CXXFLAGS = "-O2 -std=c++11 -Wall -Wextra -DLOCAL -fdiagnostics-color "
     make! %:r
 endf
 
