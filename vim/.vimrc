@@ -143,6 +143,9 @@ endf
 
 func! Compile()
     :write
+    if g:clearrun 
+        :silent !clear
+    endif
     if &filetype == "cpp"
         call CompileCPP()
     elseif &filetype == "pascal"
@@ -154,6 +157,7 @@ endf
 " }
 
 " Running functions {
+let g:clearrun = 0
 func! RunPython()
     :!python3 %
 endf
@@ -166,6 +170,9 @@ endf
 
 func! Run()
     :write
+    if g:clearrun 
+        :silent !clear
+    endif
     :silent !printf "\n\nRunning %"
     if &filetype == "python"
         call RunPython()
