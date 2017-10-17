@@ -136,6 +136,7 @@ nmap <F2> :call SmartCopypaste() <Enter>
 imap <F2> <Esc> :call SmartCopypaste() <Enter>
 
 " Compilation functions {
+let g:clearrun = 1
 func! CompileCPP()
     let $CXXFLAGS = "-O2 -std=c++11 -Wall -Wextra -DLOCAL "
     make! %:r
@@ -157,7 +158,6 @@ endf
 " }
 
 " Running functions {
-let g:clearrun = 0
 func! RunPython()
     :!python3 %
 endf
