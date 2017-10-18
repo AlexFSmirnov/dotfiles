@@ -96,7 +96,6 @@ set undofile
 set backspace=indent,eol,start
 set nopaste
 set mouse=a
-set spell 
 set spelllang=en_us,ru_ru
 " }
 
@@ -110,6 +109,7 @@ set undodir=~/.vim/undodir//
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
 au! FileType python setl nosmartindent
+au! FileType text   set spell
 
 au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
