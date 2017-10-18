@@ -26,6 +26,7 @@ highlight PmenuSel      ctermfg=cyan      ctermbg=black    cterm=bold
 highlight MatchParen    ctermfg=cyan      ctermbg=darkgrey
 highlight Visual        ctermbg=238
 highlight SpellBad      ctermfg=red       ctermbg=233
+highlight SpellCap      ctermfg=cyan      ctermbg=233
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
