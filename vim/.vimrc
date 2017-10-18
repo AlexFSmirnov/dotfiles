@@ -95,6 +95,8 @@ set undofile
 set backspace=indent,eol,start
 set nopaste
 set mouse=a
+set spell 
+set spelllang=en_us,ru_ru
 " }
 
 match MyColorC /\%<81v.\%>80v/
