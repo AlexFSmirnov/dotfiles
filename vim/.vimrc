@@ -259,8 +259,11 @@ set listchars=tab:>-
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 imap оо <Esc>
-" for соответствие
+" for соответствие, вообще, кооперация, зоопарк and so on.
 inoremap соо соо
+inoremap воо воо
+inoremap коо коо
+inoremap зоо зоо
 map Д $
 map Р ^
 cmap ц w
