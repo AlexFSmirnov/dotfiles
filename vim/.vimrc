@@ -268,6 +268,7 @@ inoremap зоо зоо
 map Д $
 map Р ^
 cmap ц w
+cmap й q
 imap А А
 imap с с
 
