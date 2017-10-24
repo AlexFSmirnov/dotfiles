@@ -154,7 +154,8 @@ func! Compile()
     if &filetype == "cpp"
         call CompileCPP()
     elseif &filetype == "pascal"
-        :!fpc -Sd -O3 %
+        :silent !set -o pipefail
+        :!fpc -O3 % |& grep -v 'contains output sections'
     else
         echo "Not appropriate file type"
     endif
