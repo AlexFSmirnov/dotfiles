@@ -10,8 +10,10 @@ ${2:
 ifstream fin("${3:`!p snip.rv = vim.eval("expand('%:r')")`}.in");
 ofstream fout("$3.out");
 }
+
 int main() {
     $0
+
     return 0;
 }
 endsnippet
