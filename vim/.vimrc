@@ -1,6 +1,11 @@
 ﻿" Reload vimrc
 map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
+" Config {
+let g:clearrun = 1  " Clear screen before each run
+let g:filein = 1    " Use file input if possible
+" }
+
 " Colorscheme {
 syntax enable
 colorscheme default
@@ -44,7 +49,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mbbill/undotree'
 Plugin 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-latex/vim-latex'
@@ -71,6 +77,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+
+inoremap gc <C-o>:call NERDComment(0, "toggle")<Enter>
+map gc :call NERDComment(0, "toggle")<Enter>
+inoremap gu <C-o>:call NERDComment(0, "uncomment")<Enter>
+map gu :call NERDComment(0, "uncomment")<Enter>
 "}
 
 " General options {
@@ -117,6 +128,7 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 
 " General mappings {
 imap jj <Esc>
+cmap jj <C-c>
 map <C-j> 5j
 map <C-k> 5k
 vmap cc <Esc>
@@ -140,107 +152,25 @@ endf
 nmap <F2> :call SmartCopypaste() <Enter>
 imap <F2> <Esc> :call SmartCopypaste() <Enter>
 
-" Compilation functions {
-let g:clearrun = 1
-func! CompileCPP()
-    let $CXXFLAGS = "-O2 -std=c++11 -Wall -Wextra -DLOCAL -fdiagnostics-color "
-    make! %:r
-endf
-
+" Running and compilation {
 func! Compile()
     :write
-    if g:clearrun 
-        :silent !clear
-    endif
-    if &filetype == "cpp"
-        call CompileCPP()
-    elseif &filetype == "pascal"
-        :silent !set -o pipefail
-        :!fpc -O3 % |& grep -v 'contains output sections'
-    else
-        echo "Not appropriate file type"
-    endif
-endf
-" }
-
-" Running functions {
-func! RunPython()
-    :!python3 %
-endf
-func! RunIPython()
-    :!python3 -i %
-endf
-func! RunBash()
-    :!bash %
+    py3file ~/.vim/vimpy/compile.py
 endf
 
 func! Run()
     :write
-    if g:clearrun 
-        :silent !clear
-    endif
-    :silent !printf "\n\nRunning %"
-    if &filetype == "python"
-        call RunPython()
-    elseif &filetype == "sh" || &filetype == "bash"
-        call RunBash()
-    else
-        :!%:p:r
-    endif
+    py3file ~/.vim/vimpy/run.py
 endf
 " }
 
 " Run/compile mappings {
 map <F9> :call Compile()<Enter>
 imap <F9> <Esc>:call Compile()<Enter>
-map <F4> :call RunIPython()<Enter>
-imap <F4> <Esc>:call RunIPython()<Enter>
 map <F5> :call Run()<Enter>
 imap <F5> <Esc>:call Run()<Enter>
-" }
-
-" Comments {
-func! GetCommentString()
-    let str = "#"
-    if &filetype == "cpp" || &filetype == "c" || &filetype == "html" || &filetype == "java" || &filetype == "javascript"
-        let str = "//"
-    elseif &filetype == "vim"
-        let str = "\""
-    elseif &filetype == "tex"
-        let str = "%"
-    endif
-    return str . " "
-endf
-func! AddComment()
-    let str = GetCommentString()
-    call setline(".", str . getline("."))
-    let move_cnt = len(str)
-    while move_cnt > 0
-        normal l
-        let move_cnt -= 1
-    endwhile
-endf
-func! RemoveComment()
-    " ISSUE: works bad on multiline comments and when line is a comment only
-    " with no leading whitespace
-    let str = GetCommentString()
-    let old = getline(".")
-    let new = substitute(old, "^" . str, "", "")
-    if old == new
-        let str = str[:-2]
-        let new = substitute(old, "^" . str, "", "")
-    endif
-    let move_cnt = len(old) - len(new)
-    while move_cnt > 0
-"         normal h
-        let move_cnt -= 1
-    endwhile
-    call setline(".", new)
-endf
-map gc :call AddComment()<Enter>
-map gu :call RemoveComment()<Enter>
-
-au FileType c,cpp setlocal comments-=:// comments+=f://
+map <F4> :!python3 -i %<Enter>
+imap <F4> <Esc>:!python3 -i %<Enter>
 " }
 
 " Folding {
@@ -262,6 +192,7 @@ set listchars=tab:>-
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 imap оо <Esc>
+cmap оо <C-c>
 " for соответствие, вообще, кооперация, зоопарк and so on.
 inoremap соо соо
 inoremap воо воо
