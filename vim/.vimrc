@@ -80,7 +80,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 
 inoremap gc <C-o>:call NERDComment(0, "toggle")<Enter>
 map gc :call NERDComment(0, "toggle")<Enter>
-inoremap gu <C-o>:call NERDComment(0, "uncomment")<Enter>
 map gu :call NERDComment(0, "uncomment")<Enter>
 "}
 
