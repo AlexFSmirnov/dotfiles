@@ -1,6 +1,9 @@
 cp -a bash/. ~
 . ~/.bashrc
 
+cp -a zsh/. ~
+. ~/.zshrc
+
 cp -a tmux/. ~
 
 cp -a vim/. ~
