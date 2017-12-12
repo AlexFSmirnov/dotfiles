@@ -57,6 +57,7 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'pangloss/vim-javascript'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'google/vim-searchindex'
 
 call vundle#end()
 filetype plugin indent on
