@@ -60,6 +60,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  catimg
+  autojump
+  python
+  pip
+  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
