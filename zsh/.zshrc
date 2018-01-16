@@ -9,6 +9,9 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+# New folder colors
+eval "$(dircolors ~/.dircolors)";
+
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -68,6 +71,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Loading autojump
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # User configuration
 
