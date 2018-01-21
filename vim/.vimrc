@@ -58,6 +58,8 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'pangloss/vim-javascript'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'google/vim-searchindex'
+Plugin 'stevearc/vim-arduino'
+Plugin 'sudar/vim-arduino-syntax'
 
 call vundle#end()
 filetype plugin indent on

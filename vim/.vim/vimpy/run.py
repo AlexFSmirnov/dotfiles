@@ -7,9 +7,10 @@ filetype = vim.eval("&filetype")
 filename = vim.eval('expand("%:t")')
 filepath = vim.eval('expand("%:p:r")')
 commands = {
-    "python": "python3 {}".format(filename),
-    "bash"  : "bash {}".format(filename),
-    "sh"    : "bash {}".format(filename),
+    "python" : "slient !python3 {}".format(filename),
+    "bash"   : "silent !bash {}".format(filename),
+    "sh"     : "silent !bash {}".format(filename),
+    "arduino": "ArduinoUpload"
 }
 
 
@@ -20,7 +21,7 @@ stime = time.time()
 vim.command('silent !printf "\\n\\nRunning {}\\n"'.format(filename))
 
 
-run_command = filepath
+run_command = "silent !" + filepath
 if filetype in commands.keys():
     run_command = commands[filetype]
 
@@ -32,7 +33,7 @@ if vim.eval("g:filein") == "1" and os.path.isfile(filepath + ".in"):
             vim.command('silent !echo {}'.format(line))
     vim.command('silent !printf "Input end-----------\\n\\n"')
 
-vim.command("silent !{}".format(run_command))
+vim.command(run_command)
 
 
 finish_time = time.time() - stime
