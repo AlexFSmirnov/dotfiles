@@ -7,7 +7,7 @@ filetype = vim.eval("&filetype")
 filename = vim.eval('expand("%:t")')
 filepath = vim.eval('expand("%:p:r")')
 commands = {
-    "python" : "slient !python3 {}".format(filename),
+    "python" : "silent !python3 {}".format(filename),
     "bash"   : "silent !bash {}".format(filename),
     "sh"     : "silent !bash {}".format(filename),
     "arduino": "ArduinoUpload"
