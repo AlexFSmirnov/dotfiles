@@ -7,7 +7,7 @@ gcpp() {
     g++ -O2 -std=c++11 -Wall -Wextra -DLOCAL $1 -o ${1%%.*}
 }
 
-alias ip3="python3 -i"
+alias ip3="jupyter console"
 
 alias susp="systemctl suspend"
 alias xcopy="xclip -selection clipboard"

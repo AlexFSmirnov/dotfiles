@@ -1,4 +1,5 @@
 import vim, requests, pyperclip
+from os.path import expanduser
 
 
 def get_range():
@@ -26,7 +27,7 @@ def paste_to_pastebin(paste_format):
 
 url = "https://pastebin.com/api/api_post.php"
 try:
-    user_dev_key = open("/home/alexfsmirnov/.pastebin_dev_key").read().strip()
+    user_dev_key = open(expanduser("~/.pastebin_dev_key")).read().strip()
 except IOError:
     raise IOError("No pastebin dev key found")
 
