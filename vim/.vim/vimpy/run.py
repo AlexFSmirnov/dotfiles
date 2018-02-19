@@ -5,11 +5,13 @@ import time
 
 filetype = vim.eval("&filetype")
 filename = vim.eval('expand("%:t")')
+no_ext   = vim.eval('expand("%:r")')
 filepath = vim.eval('expand("%:p:r")')
 commands = {
     "python" : "silent !python3 {}".format(filename),
     "bash"   : "silent !bash {}".format(filename),
     "sh"     : "silent !bash {}".format(filename),
+    "cs"     : "silent !mono {}".format(no_ext),
     "arduino": "ArduinoUpload"
 }
 
@@ -18,7 +20,7 @@ if vim.eval("g:clearrun") == "1":
     vim.command("silent !clear")
 
 stime = time.time()
-vim.command('silent !printf "\\n\\nRunning {}\\n"'.format(filename))
+vim.command('silent !printf "Running {}\\n"'.format(filename))
 
 
 run_command = "silent !" + filepath

@@ -13,8 +13,12 @@ def compile_pascal():
 def compile_arduino():
     vim.command("ArduinoVerify")
 
+def compile_cs():
+    vim.command("!mcs -out:%:r %")
+
 
 filetype = vim.eval("&filetype")
+filename = vim.eval('expand("%")')
 if vim.eval("g:clearrun") == "1":
     vim.command("silent !clear")
 
@@ -24,6 +28,9 @@ elif filetype == "pascal":
     compile_pascal()
 elif filetype == "arduino":
     compile_arduino()
+elif filetype == "cs":
+    vim.command('silent !printf "Compiling {}\\n"'.format(filename))
+    compile_cs()
 else:
     vim.command('echo "Not appropriate file type"')
 
