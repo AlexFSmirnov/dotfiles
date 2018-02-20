@@ -21,14 +21,14 @@ writeln(`!p snip.rv = match.group(1)[1:-1].replace(", ", ", ' ', ")`);
 
 endsnippet
 
-snippet "rl(\w+)" "Readline snigle value" r
+snippet "read(\w+)" "Readline snigle value" r
 readln(`!p snip.rv = match.group(1)`);
 
 endsnippet
-snippet "rl(\(.+?\))" "Readline multiple values" r
+snippet "read(\(.+?\))" "Readline multiple values" r
 readln(`!p snip.rv = match.group(1)[1:-1]`);
 endsnippet
-snippet "rlm(\(.+?\))" "Readlines multiple values" r
+snippet "readm(\(.+?\))" "Readlines multiple values" r
 `!p values = match.group(1)[1:-1].split(", ")
 indent = int(vim.eval('indent(".")'))
 snip.rv = "readln({});\n".format(values[0])
