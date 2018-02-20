@@ -1,11 +1,11 @@
-snippet "(\w+).inp" "Input snigle int value" r
+snippet "read(\w+)" "Input snigle int value" r
 `!p snip.rv = match.group(1)` = int(input())
 
 endsnippet
 snippet linp "Input many int values separated by spaces"
 list(map(int, input().split()))
 endsnippet
-snippet "(\(.+?\)).inp" "Input multiple values" r
+snippet "read(\(.+?\))" "Input multiple values" r
 `!p values = match.group(1)[1:-1].split(", ")
 indent = int(vim.eval('indent(".")'))
 snip.rv = "{} = int(input())\n".format(values[0])
