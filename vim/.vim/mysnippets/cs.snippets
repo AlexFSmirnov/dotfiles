@@ -1,0 +1,20 @@
+snippet init "Default code for C#"
+using System;
+using static System.Console;
+
+namespace `!p snip.rv = vim.eval("expand('%:r')").title()` {
+    class Program {
+        static void Main(string[] args) {
+            $0
+        }
+    }
+}
+endsnippet
+
+snippet "print(\(.+?\))" "Transforms to Console.WriteLine()" r
+WriteLine(`!p snip.rv = match.group(1)[1:-1].replace(", ", ' + " " + ')`);
+endsnippet
+
+snippet "(sbyte|byte|short|ushort|int|uint|long|ulong).p" "Read and parse" r
+`!p snip.rv = match.group(1)`.Parse(ReadLine());
+endsnippet
