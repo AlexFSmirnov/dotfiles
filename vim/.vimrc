@@ -75,13 +75,12 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 
-inoremap gc <C-o>:call NERDComment(0, "toggle")<Enter>
 map gc :call NERDComment(0, "toggle")<Enter>
 map gu :call NERDComment(0, "uncomment")<Enter>
 "}
@@ -131,8 +130,8 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 " General mappings {
 imap jj <Esc>
 cmap jj <C-c>
-map <C-j> 5j
-map <C-k> 5k
+noremap <C-j> <C-e>
+noremap <C-k> <C-y>
 vmap cc <Esc>
 map ; :
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
