@@ -14,7 +14,12 @@ def compile_arduino():
     vim.command("ArduinoVerify")
 
 def compile_cs():
-    vim.command("!mcs -out:%:r %")
+    libs = ["/usr/lib/mono/gac/Mono.Cairo/4.0.0.0__0738eb9f132ed756/Mono.Cairo.dll",
+            "/usr/lib/cli/gdk-sharp-2.0/gdk-sharp.dll",
+            "/usr/lib/cli/glib-sharp-2.0/glib-sharp.dll",
+            "/usr/lib/cli/gtk-sharp-2.0/gtk-sharp.dll",
+            "/usr/lib/cli/atk-sharp-2.0/atk-sharp.dll"]
+    vim.command("!mcs /reference:{} -out:%:r %".format(','.join(libs)))
 
 
 filetype = vim.eval("&filetype")
