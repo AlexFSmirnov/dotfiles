@@ -130,12 +130,15 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 " General mappings {
 imap jj <Esc>
 cmap jj <C-c>
-noremap <C-j> <C-e>
-noremap <C-k> <C-y>
-vmap cc <Esc>
+vmap vv <Esc>
+" <C-j> is mapped by the UltiSnips, so we 
+" re-map it after the plugin is loaded
+autocmd VimEnter * nnoremap <C-j> <C-e> 
+autocmd VimEnter * nnoremap <C-k> <C-y>
 map ; :
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
 map <F8> :UndotreeHide <Enter> :NERDTreeTabsToggle <Enter>
+vmap <C-y> "+y
 " }
 
 " Function for smart copying and pasting 
