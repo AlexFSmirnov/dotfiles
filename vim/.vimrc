@@ -139,6 +139,7 @@ map ; :
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
 map <F8> :UndotreeHide <Enter> :NERDTreeTabsToggle <Enter>
 vmap <C-y> "+y
+nmap <C-p> "+p
 " }
 
 " Function for smart copying and pasting 
