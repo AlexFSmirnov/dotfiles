@@ -143,7 +143,7 @@ imap jj <Esc>
 cmap jj <C-c>
 vmap vv <Esc>
 " <C-j> is mapped by the UltiSnips, so we re-map it after the plugin is loaded
-autocmd VimEnter * nnoremap <C-j> <C-e> 
+autocmd VimEnter * nnoremap <C-j> <C-e>
 autocmd VimEnter * nnoremap <C-k> <C-y>
 map ; :
 map <F6> :NERDTreeTabsClose <Enter> :UndotreeToggle <Enter>
