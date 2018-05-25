@@ -130,7 +130,11 @@ au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 " }
 
-" Save folds {
+" Folding {
+map zz HV/{<Enter>%zf:let @/=""<Enter>
+vmap zz zf
+
+" Save folds 
 augroup AutoSaveFolds
     autocmd!
     autocmd BufWinLeave * mkview
@@ -187,10 +191,6 @@ imap <F5> <Esc>:call Run()<Enter>
 map <F4> :!python3 -i %<Enter>
 imap <F4> <Esc>:!python3 -i %<Enter>
 " }
-
-" Folding {
-map zz HV/{<Enter>%zf:let @/=""<Enter>
-" }}
 
 set timeoutlen=300
 
