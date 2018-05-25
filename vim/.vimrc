@@ -114,11 +114,13 @@ set spelllang=en_us,ru_ru
 
 match MyColorC /\%<81v.\%>80v/
 
-" Backup files
+" Backup files directories {
 set directory=~/.vim/swapfiles//
 set backupdir=~/.vim/backups//
 set undodir=~/.vim/undodir//
+" }
  
+" Filetype-specific settings {
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
 au! FileType python setl nosmartindent
@@ -126,13 +128,21 @@ au! FileType text   set spell
 
 au BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
+" }
+
+" Save folds {
+augroup AutoSaveFolds
+    autocmd!
+    autocmd BufWinLeave * mkview
+    autocmd BufWinEnter * silent loadview
+augroup END
+" }
 
 " General mappings {
 imap jj <Esc>
 cmap jj <C-c>
 vmap vv <Esc>
-" <C-j> is mapped by the UltiSnips, so we 
-" re-map it after the plugin is loaded
+" <C-j> is mapped by the UltiSnips, so we re-map it after the plugin is loaded
 autocmd VimEnter * nnoremap <C-j> <C-e> 
 autocmd VimEnter * nnoremap <C-k> <C-y>
 map ; :
