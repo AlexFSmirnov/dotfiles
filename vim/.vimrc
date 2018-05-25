@@ -131,7 +131,8 @@ au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
 " }
 
 " Folding {
-map zz HV/{<Enter>%zf:let @/=""<Enter>
+nmap zz HV/{<Enter>%zf:let @/=""<Enter>
+nmap zt za
 vmap zz zf
 
 " Save folds 
