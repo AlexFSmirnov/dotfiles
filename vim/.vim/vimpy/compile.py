@@ -21,11 +21,16 @@ def compile_cs():
             "/usr/lib/cli/atk-sharp-2.0/atk-sharp.dll"]
     vim.command("!mcs /reference:{} -out:%:r %".format(','.join(libs)))
 
+def compile_java():
+    vim.command("!javac {}".format(filename))
+
 
 filetype = vim.eval("&filetype")
 filename = vim.eval('expand("%")')
 if vim.eval("g:clearrun") == "1":
     vim.command("silent !clear")
+
+vim.command('silent !printf "Compiling {}\\n"'.format(filename))
 
 if filetype == "cpp":
     compile_cpp()
@@ -34,8 +39,9 @@ elif filetype == "pascal":
 elif filetype == "arduino":
     compile_arduino()
 elif filetype == "cs":
-    vim.command('silent !printf "Compiling {}\\n"'.format(filename))
     compile_cs()
+elif filetype == "java":
+    compile_java()
 else:
     vim.command('echo "Not appropriate file type"')
 

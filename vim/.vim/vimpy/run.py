@@ -12,7 +12,8 @@ commands = {
     "bash"   : "silent !bash {}".format(filename),
     "sh"     : "silent !bash {}".format(filename),
     "cs"     : "silent !mono {}".format(no_ext),
-    "arduino": "ArduinoUpload"
+    "arduino": "ArduinoUpload",
+    "java"   : "silent !java {}".format(no_ext)
 }
 
 
