@@ -50,7 +50,7 @@ endsnippet
 
 snippet coutvector "Template for printing vectors to standard output"
 template<typename T>
-ostream& operator<<(ostream& out, vector<T>& vec) {
+std::ostream& operator<<(std::ostream& out, std::vector<T>& vec) {
     if (vec.size() == 0) {
         out << "[]";
         return out;
