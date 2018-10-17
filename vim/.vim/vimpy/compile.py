@@ -3,8 +3,11 @@ import time
 
 
 def compile_cpp():
-    vim.command('let $CXXFLAGS = "-O2 -std=c++11 -Wall -Wextra -DLOCAL -fdiagnostics-color "')
-    vim.command("make! %:r")
+    flags = "-O2 -std=c++11 -Wall -Wextra -DLOCAL -fdiagnostics-color "
+    if vim.eval("g:sfml") == "1":
+        flags += "-lsfml-graphics -lsfml-window -lsfml-system "
+
+    vim.command("!g++ {} {} -o {}".format(filename, flags, no_ext))
 
 def compile_pascal():
     vim.command("silent !set -o pipefail")
@@ -27,6 +30,7 @@ def compile_java():
 
 filetype = vim.eval("&filetype")
 filename = vim.eval('expand("%")')
+no_ext   = vim.eval('expand("%:r")')
 if vim.eval("g:clearrun") == "1":
     vim.command("silent !clear")
 

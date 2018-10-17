@@ -3,7 +3,8 @@ map gr :sou ~/.vimrc<Enter>:echo "Reloaded .vimrc"<Enter>
 
 " Config {
 let g:clearrun = 1  " Clear screen before each run
-let g:filein = 1    " Use file input if possible
+let g:filein   = 1  " Use file input if possible
+let g:sfml     = 0  " Include SFML lib when compiling C++
 " }
 
 " Colorscheme {
