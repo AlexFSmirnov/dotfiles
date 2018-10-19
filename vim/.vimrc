@@ -124,7 +124,6 @@ set undodir=~/.vim/undodir//
 " Filetype-specific settings {
 autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
-au! FileType python setl nosmartindent
 au! FileType text   set spell
 
 au BufRead,BufNewFile *.in setfiletype text
@@ -190,8 +189,6 @@ map <F9> :call Compile()<Enter>
 imap <F9> <Esc>:call Compile()<Enter>
 map <F5> :call Run()<Enter>
 imap <F5> <Esc>:call Run()<Enter>
-map <F4> :!python3 -i %<Enter>
-imap <F4> <Esc>:!python3 -i %<Enter>
 " }
 
 set timeoutlen=300
