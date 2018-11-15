@@ -33,6 +33,8 @@ highlight MatchParen    ctermfg=cyan      ctermbg=darkgrey
 highlight Visual        ctermbg=238
 highlight SpellBad      ctermfg=red       ctermbg=233
 highlight SpellCap      ctermfg=cyan      ctermbg=233
+
+match MyColorC /\%<81v.\%>80v/
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
@@ -113,8 +115,6 @@ set mouse=a
 set spelllang=en_us,ru_ru
 " }
 
-match MyColorC /\%<81v.\%>80v/
-
 " Backup files directories {
 set directory=~/.vim/swapfiles//
 set backupdir=~/.vim/backups//
@@ -138,8 +138,8 @@ vmap zz zf
 " Save folds 
 augroup AutoSaveFolds
     autocmd!
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent loadview
+    autocmd BufWinLeave ?* mkview
+    autocmd BufWinEnter ?* silent loadview
 augroup END
 " }
 
