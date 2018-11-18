@@ -6,12 +6,12 @@ snippet init "Default code for cpp"
 #define fore(i, b, e) for (int i = (int)(b); i < (int)(e); i++)
 
 using namespace std;
-${1:
-ifstream fin("${2:`!p snip.rv = vim.eval("expand('%:r')")`}.in");
-ofstream fout("$2.out");
+${2:
+ifstream fin("${3:`!p snip.rv = vim.eval("expand('%:r')")`}.in");
+ofstream fout("$3.out");
 }
 
-int main(int argc, char* argv[]) {
+int main(${4:int argc, char* argv[]}) {
     $0
 
     return 0;
