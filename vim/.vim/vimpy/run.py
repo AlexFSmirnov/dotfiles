@@ -34,7 +34,7 @@ if vim.eval("g:filein") == "1" and os.path.isfile(filepath + ".in"):
     with open(filepath + ".in", 'r') as fin:
         for line in fin.readlines():
             line = line.replace('<', '\<').replace('>', '\>')
-            vim.command('silent !echo {}'.format(line))
+            vim.command('silent !echo {}'.format(line.replace('"', '\"')))
     vim.command('silent !printf "Input end-----------\\n\\n"')
 
 vim.command(run_command)
