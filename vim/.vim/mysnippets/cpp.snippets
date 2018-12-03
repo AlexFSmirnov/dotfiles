@@ -1,8 +1,11 @@
 snippet init "Default code for cpp"
-#include <iostream>`!p snip.rv = "\n#include <fstream>" if len(t[1]) > 1 else ""`
-
-#define forn(i, n) for (int i = 0; i < (int)(n); i++)
-#define ford(i, n) for (int i = (int)(n - 1); i >= 0; i--)
+#include <iostream>`!p snip.rv = "\n#include <fstream>" if len(t[2]) > 1 else ""`
+${1:Space separated libraries to include (press ENTER to confirm)}`!p 
+if ('\n' in t[1] or '  ' in t[1]) and '#' not in t[1]:
+    t[1] = '\n'.join(["#include <{}>".format(x) for x in t[1].strip().split(' ')]) + '\n'
+`
+#define forn(i, n) for (size_t i = 0; i < (size_t)(n); i++)
+#define ford(i, n) for (size_t i = (size_t)(n - 1); i >= 0; i--)
 #define fore(i, b, e) for (int i = (int)(b); i < (int)(e); i++)
 
 using namespace std;
@@ -18,12 +21,23 @@ int main(${4:int argc, char* argv[]}) {
 }
 endsnippet
 
+snippet "include (.+);" "Include space separated libraries" r
+`!p 
+snip.rv = '\n'.join(["#include <{}>".format(x) for x in match.group(1).strip().split(' ')]) + '\n'
+snip.rv = snip.rv.replace('<"', '"').replace('">', '"')`
+endsnippet
+
+snippet uns "Using namespace std"
+using namespace std;
+endsnippet
+
 snippet sort "Vector sorting"
 sort(${1:vector}.begin(), $1.end());
-endsnippet
-snippet "sort(\w+)" "Vector sorting" r
-sort(`!p snip.rv=match.group(1)`.begin(), `!p snip.rv=match.group(1)`.end());
 
+endsnippet
+
+snippet "sort\((\w+)\)" "Vector sorting" r
+`!p snip.rv = "sort({0}.begin(), {0}.end());\n".format(match.group(1))`
 endsnippet
 
 snippet "print(\(.+?\))" "Transforms to cout" r
@@ -62,4 +76,3 @@ std::ostream& operator<<(std::ostream& out, std::vector<T>& vec) {
     return out;
 }
 endsnippet
-

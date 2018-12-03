@@ -199,8 +199,6 @@ map H ^
 nnoremap gp `[v`]
 nnoremap gP `[V`]
 
-iab uns using namespace std;
-
 set list
 set listchars=tab:>-
 
