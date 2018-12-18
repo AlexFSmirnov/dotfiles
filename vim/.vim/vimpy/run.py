@@ -33,8 +33,10 @@ if vim.eval("g:filein") == "1" and os.path.isfile(filepath + ".in"):
     vim.command('silent !printf "Input from file-----\\n"')
     with open(filepath + ".in", 'r') as fin:
         for line in fin.readlines():
-            line = line.replace('<', '\<').replace('>', '\>')
-            vim.command('silent !echo {}'.format(line.replace('"', '\"')))
+            to_backslash = "<>()[]\'\"*"
+            for c in to_backslash:
+                line = line.replace(c, '\\' + c)
+            vim.command('silent !echo {}'.format(line))
     vim.command('silent !printf "Input end-----------\\n\\n"')
 
 vim.command(run_command)
