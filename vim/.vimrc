@@ -113,6 +113,7 @@ set backspace=indent,eol,start
 set nopaste
 set mouse=a
 set spelllang=en_us,ru_ru
+au CursorHold * checktime 
 " }
 
 " Backup files directories {
