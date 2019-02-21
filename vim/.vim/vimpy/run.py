@@ -14,7 +14,8 @@ commands = {
     "cs"     : "silent !mono {}".format(no_ext),
     "arduino": "ArduinoUpload",
     "java"   : "silent !java {}".format(no_ext),
-    "perl"   : "silent !swipl {}".format(filename)  # Actually, prolog
+    "perl"   : "silent !swipl {}".format(filename),  # Actually, prolog
+    "make"   : "silent !make"
 }
 
 
