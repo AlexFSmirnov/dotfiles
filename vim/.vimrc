@@ -34,7 +34,7 @@ highlight Visual        ctermbg=238
 highlight SpellBad      ctermfg=red       ctermbg=233
 highlight SpellCap      ctermfg=cyan      ctermbg=233
 
-match MyColorC /\%<81v.\%>80v/
+match MyColorC /\%<101v.\%>100v/
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
@@ -127,8 +127,9 @@ autocmd BufEnter Makefile set noet
 autocmd BufLeave Makefile set et
 au! FileType text   set spell
 
-au BufRead,BufNewFile *.in setfiletype text
+au BufEnter,BufRead,BufNewFile *.in setfiletype text
 au BufEnter,BufRead,BufNewFile *.md setfiletype markdown
+au BufEnter,BufRead,BufNewFile *.pl set filetype=prolog
 " }
 
 " Folding {
