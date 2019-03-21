@@ -1,4 +1,5 @@
 import os 
+import re
 import vim
 import time
 
@@ -30,8 +31,9 @@ run_command = "silent !" + filepath
 if filetype in commands.keys():
     run_command = commands[filetype]
 
+input_from_file = ""
 if vim.eval("g:filein") == "1" and os.path.isfile(filepath + ".in"):
-    run_command += " < {}.in".format(filepath)
+    input_from_file = " < {}.in".format(filepath)
     vim.command('silent !printf "Input from file-----\\n"')
     with open(filepath + ".in", 'r') as fin:
         for line in fin.readlines():
@@ -41,7 +43,12 @@ if vim.eval("g:filein") == "1" and os.path.isfile(filepath + ".in"):
             vim.command('silent !echo {}'.format(line))
     vim.command('silent !printf "Input end-----------\\n\\n"')
 
-vim.command(run_command)
+if os.path.isfile("./Makefile"):
+    with open("./Makefile", 'r') as fin:
+        fn = re.findall(r'^[a-zA-Z]+?:', fin.read(), flags=re.MULTILINE)[0][:-1]
+    vim.command("silent !./{} {}".format(fn, input_from_file))
+else:
+    vim.command(run_command + input_from_file)
 
 
 finish_time = time.time() - stime
