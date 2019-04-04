@@ -2,7 +2,7 @@ cp -a bash/. ~
 . ~/.bashrc
 
 cp -a zsh/. ~
-. ~/.zshrc
+#. ~/.zshrc
 
 cp -a tmux/. ~
 
