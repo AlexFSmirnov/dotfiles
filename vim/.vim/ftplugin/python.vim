@@ -7,3 +7,4 @@ imap <F4> <Esc>:!python3 -i %<Enter>
 " Custom highlights
 syn keyword pythonSelf self
 highlight def link pythonSelf Statement
+match MyColorC /\%<81v.\%>80v/

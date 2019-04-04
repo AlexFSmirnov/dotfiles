@@ -55,6 +55,9 @@ elif filetype == "java":
 elif filetype == "make":
     vim.command("silent !make")
     vim.command('!echo ""')
+elif filetype == "haskell":
+    vim.command("silent !ghc {}".format(filename))
+    vim.command('!echo ""')
 else:
     vim.command('echo "Not appropriate file type"')
 
