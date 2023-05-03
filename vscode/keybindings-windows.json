@@ -1,0 +1,105 @@
+// Place your key bindings in this file to override the defaults
+[
+    // General
+    {
+        "key": "ctrl+alt+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+
+    // Terminal/editor directional navigation keys
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusPanel",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusPanel",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusRightGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusLeftGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "!editorTextFocus"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+shift+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+shift+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+
+    // Editor split control
+    {
+        "key": "ctrl+a v",
+        "command": "workbench.action.splitEditorRight",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+a h",
+        "command": "workbench.action.splitEditorDown",
+        "when": "editorTextFocus"
+    },
+
+    // Terminal split control and navigation
+    {
+        "key": "ctrl+a v",
+        "command": "workbench.action.terminal.split",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+a n",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+a d",
+        "command": "workbench.action.terminal.kill",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.action.terminal.focus",
+        "when": "inDebugRepl"
+    },
+    {
+        "key": "ctrl+alt+d",
+        "command": "workbench.panel.repl.view.focus",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.debug.panel.action.clearReplAction",
+        "when": "inDebugRepl"
+    }
+]
