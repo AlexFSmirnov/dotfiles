@@ -10,7 +10,7 @@
 ZSH_THEME="robbyrussell"
 
 # New folder colors
-eval "$(dircolors ~/.dircolors)";
+# eval "$(dircolors ~/.dircolors)";
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -64,10 +64,8 @@ eval "$(dircolors ~/.dircolors)";
 plugins=(
   git
   catimg
-  autojump
   python
   pip
-  zsh-completions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -76,6 +74,39 @@ source $ZSH/oh-my-zsh.sh
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # User configuration
+
+# Find and set branch name var if in git repository.
+function git_branch_name()
+{
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch')'
+  fi
+}
+
+# Enable substitution in the prompt.
+setopt prompt_subst
+
+# Set the custom prompt
+PROMPT="%F{green}➜ %F{cyan}%~ %F{green}$(git_branch_name)%F{blue} » %f"
+
+# Git prompt customization
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY=""
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+# Enable autocompletion
+autoload -Uz compinit
+compinit
+
+# Configure completion behaviour
+zstyle ':completion:*' menu select
+bindkey '^I' menu-complete
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -109,4 +140,3 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-export PATH="$PATH:/opt/ghc/bin:"
