@@ -9,6 +9,11 @@
 
     // Terminal/editor directional navigation keys
     {
+        "key": "ctrl+space",
+        "command": "workbench.action.terminal.focus",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "cmd+j",
         "command": "workbench.action.focusPanel",
         "when": "editorTextFocus"
@@ -88,12 +93,12 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+alt+d",
+        "key": "ctrl+cmd+d",
         "command": "workbench.action.terminal.focus",
         "when": "inDebugRepl"
     },
     {
-        "key": "ctrl+alt+d",
+        "key": "ctrl+cmd+d",
         "command": "workbench.panel.repl.view.focus",
         "when": "terminalFocus"
     },
@@ -101,6 +106,39 @@
         "key": "ctrl+l",
         "command": "workbench.debug.panel.action.clearReplAction",
         "when": "inDebugRepl"
+    },
+
+    // GitHub Copilot bindings
+    {
+        "key": "ctrl+i",
+        "command": "interactiveEditor.start",
+        "when": "!editorReadonly"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-interactiveEditor.start",
+        "when": "interactiveEditorHasProvider && !editorReadonly"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.chat.clear",
+        "when": "inChat"
+    },
+    {
+        "key": "ctrl+cmd+i",
+        "command": "workbench.panel.interactiveSession.view.copilot.focus",
+        "when": "!inChat"
+    },
+    {
+        "key": "ctrl+cmd+i",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "inChat"
+    },
+
+    // Bind ctrl+shift+f for ESLint autofix, unbind from everywhere else
+    {
+        "key": "ctrl+shift+f",
+        "command": "eslint.executeAutofix"
     },
 
     // Remap Cmd+P and Cmd+Shift+P to Ctrl+P and Ctrl+Shift+P

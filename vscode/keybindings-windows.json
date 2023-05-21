@@ -9,6 +9,11 @@
 
     // Terminal/editor directional navigation keys
     {
+        "key": "ctrl+space",
+        "command": "workbench.action.terminal.focus",
+        "when": "editorTextFocus"
+    },
+    {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
         "when": "editorTextFocus"
@@ -48,16 +53,6 @@
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
     },
-    {
-        "key": "alt+shift+k",
-        "command": "workbench.action.terminal.focusPrevious",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "alt+shift+j",
-        "command": "workbench.action.terminal.focusNext",
-        "when": "terminalFocus"
-    },
 
     // Editor split control
     {
@@ -72,6 +67,16 @@
     },
 
     // Terminal split control and navigation
+    {
+        "key": "alt+shift+k",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+shift+j",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
     {
         "key": "ctrl+a v",
         "command": "workbench.action.terminal.split",
@@ -101,5 +106,57 @@
         "key": "ctrl+l",
         "command": "workbench.debug.panel.action.clearReplAction",
         "when": "inDebugRepl"
+    },
+
+    // GitHub Copilot bindings
+    {
+        "key": "ctrl+i",
+        "command": "interactiveEditor.start",
+        "when": "!editorReadonly"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "-interactiveEditor.start",
+        "when": "interactiveEditorHasProvider && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "workbench.panel.interactiveSession.view.copilot.focus",
+        "when": "!inChat"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.chat.clear",
+        "when": "inChat"
+    },
+    {
+        "key": "win+l",
+        "command": "-workbench.action.chat.clear",
+        "when": "inChat"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "inChat"
+    },
+
+    // Bind ctrl+shift+f for ESLint autofix, unbind from everywhere else
+    {
+        "key": "ctrl+shift+f",
+        "command": "eslint.executeAutofix"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.action.terminal.searchWorkspace",
+        "when": "terminalFocus && terminalProcessSupported && terminalTextSelected"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.view.search",
+        "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
     }
 ]
