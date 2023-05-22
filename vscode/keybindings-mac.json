@@ -134,11 +134,31 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "inChat"
     },
+    {
+        "key": "ctrl+shift+i",
+        "command": "chat.action.askQuickQuestion",
+        "when": "config.chat.experimental.quickQuestion.enable"
+    },
+    {
+        "key": "shift+cmd+i",
+        "command": "-chat.action.askQuickQuestion",
+        "when": "config.chat.experimental.quickQuestion.enable"
+    },
 
     // Bind ctrl+shift+f for ESLint autofix, unbind from everywhere else
     {
-        "key": "ctrl+shift+f",
+        "key": "shift+cmd+f",
         "command": "eslint.executeAutofix"
+    },
+    {
+        "key": "shift+cmd+f",
+        "command": "-workbench.view.search",
+        "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "workbench.view.search",
+        "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
     },
 
     // Remap Cmd+P and Cmd+Shift+P to Ctrl+P and Ctrl+Shift+P
@@ -693,5 +713,25 @@
         "key": "ctrl+p",
         "command": "-showPrevParameterHint",
         "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+    },
+    {
+        "key": "ctrl+shift+/",
+        "command": "github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-github.copilot.acceptCursorPanelSolution",
+        "when": "github.copilot.activated && github.copilot.panelVisible"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+/",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]
