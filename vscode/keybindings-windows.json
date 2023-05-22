@@ -140,23 +140,9 @@
         "when": "inChat"
     },
 
-    // Bind ctrl+shift+f for ESLint autofix, unbind from everywhere else
+    // Bind ctrl+alt+f for ESLint autofix, unbind from everywhere else
     {
-        "key": "ctrl+shift+f",
+        "key": "ctrl+alt+f",
         "command": "eslint.executeAutofix"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "-workbench.action.findInFiles"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "-workbench.action.terminal.searchWorkspace",
-        "when": "terminalFocus && terminalProcessSupported && terminalTextSelected"
-    },
-    {
-        "key": "ctrl+shift+f",
-        "command": "-workbench.view.search",
-        "when": "workbench.view.search.active && neverMatch =~ /doesNotMatch/"
     }
 ]
