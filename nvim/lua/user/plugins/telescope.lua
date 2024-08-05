@@ -37,6 +37,8 @@ return {
               ['<Esc>'] = actions.close,
 
               ['<CR>'] = actions.select_default,
+              ['<A-f>'] = actions.select_default,
+              ['<A-a>'] = actions.select_default,
               ['<A-h>'] = actions.select_horizontal,
               ['<A-l>'] = actions.select_vertical,
 

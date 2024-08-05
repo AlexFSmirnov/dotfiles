@@ -43,6 +43,7 @@ keymap('n', '<A-h>', '<C-w>h')
 keymap('n', '<A-j>', '<C-w>j')
 keymap('n', '<A-k>', '<C-w>k')
 keymap('n', '<A-l>', '<C-w>l')
+keymap('n', '<A-w>', '<C-w>w')
 
 -- Resize windows with arrows
 keymap('n', '<C-Up>', ':resize -2<CR>')
