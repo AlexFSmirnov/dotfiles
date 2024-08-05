@@ -50,7 +50,6 @@ return {
 
       preview_config = {
         -- Options passed to nvim_open_win
-        -- border = { '', 'WinSeparator', '', 'WinSeparator', '', 'WinSeparator', '', 'WinSeparator' },
         border = {
           { '╭', 'WinSeparator' },
           { '─', 'WinSeparator' },

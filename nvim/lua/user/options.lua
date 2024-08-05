@@ -1,7 +1,7 @@
 local options = {
   backup = false,                        -- creates a backup file
   clipboard = "unnamedplus",             -- allows neovim to access the system clipboard
-  cmdheight = 2,                         -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                         -- only one line under the status bar for commands
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                      -- so that `` is visible in markdown files
   fileencoding = "utf-8",                -- the encoding written to a file
@@ -9,8 +9,8 @@ local options = {
   ignorecase = true,                     -- ignore case in search patterns
   mouse = "a",                           -- allow the mouse to be used in neovim
   pumheight = 10,                        -- pop up menu height
-  -- showmode = false,                      -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 2,                       -- always show tabs
+  showmode = false,                      -- we don't need to see things like -- INSERT -- anymore
+  showtabline = 0,                       -- never show tabs
   smartcase = true,                      -- smart case
   smartindent = true,                    -- make indenting smarter again
   splitbelow = true,                     -- force all horizontal splits to go below current window
@@ -38,6 +38,12 @@ local options = {
   guifont = "monospace:h17",             -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                -- which "horizontal" keys are allowed to travel to prev/next line
   backspace = { 'indent', 'eol', 'start' },
+
+  foldcolumn = '0',
+  statuscolumn = '  %=%l%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  "}%*',
+  foldlevel = 99,
+  foldlevelstart = 99,
+  foldenable = true,
 }
 
 for k, v in pairs(options) do
@@ -49,3 +55,15 @@ vim.opt.shortmess:append "c"                         -- don't give |ins-completi
 vim.opt.iskeyword:append "-"                         -- hyphenated words recognized by searches
 
 vim.opt.formatoptions:remove({ "c", "r", "o" })      -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
+
+-- nvim-tree stuff
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "NvimTree" then
+      vim.opt_local.statuscolumn = ""
+    end
+  end
+})

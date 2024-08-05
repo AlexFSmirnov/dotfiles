@@ -51,3 +51,7 @@ keymap('n', '<C-Down>', ':resize +2<CR>')
 keymap('n', '<C-Left>', ':vertical resize -2<CR>')
 keymap('n', '<C-Right>', ':vertical resize +2<CR>')
 
+-- Folds
+keymap('n', 'zz', 'za')
+keymap('n', 'zc', 'za')
+keymap('v', 'zc', 'zf')
