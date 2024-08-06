@@ -8,8 +8,11 @@ return {
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
+      'VonHeikement/lsp-zero.nvim',
     },
     config = function()
+      require('lsp-zero.cmp').extend({})
+
       local cmp = require('cmp')
       local luasnip = require('luasnip')
 

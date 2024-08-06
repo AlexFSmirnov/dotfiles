@@ -18,4 +18,5 @@ Install dependencies for telescope:
 - Copilot 
 - Toggleterm
 - Lazygit
+- Undotree
 
