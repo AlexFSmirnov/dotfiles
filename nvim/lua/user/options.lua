@@ -1,69 +1,93 @@
 local options = {
-  backup = false,                        -- creates a backup file
-  clipboard = "unnamedplus",             -- allows neovim to access the system clipboard
-  cmdheight = 1,                         -- only one line under the status bar for commands
-  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-  conceallevel = 0,                      -- so that `` is visible in markdown files
-  fileencoding = "utf-8",                -- the encoding written to a file
-  hlsearch = true,                       -- highlight all matches on previous search pattern
-  ignorecase = true,                     -- ignore case in search patterns
-  mouse = "a",                           -- allow the mouse to be used in neovim
-  pumheight = 10,                        -- pop up menu height
-  showmode = false,                      -- we don't need to see things like -- INSERT -- anymore
-  showtabline = 0,                       -- never show tabs
-  smartcase = true,                      -- smart case
-  smartindent = true,                    -- make indenting smarter again
-  splitbelow = true,                     -- force all horizontal splits to go below current window
-  splitright = true,                     -- force all vertical splits to go to the right of current window
-  swapfile = false,                      -- creates a swapfile
-  termguicolors = true,                  -- set term gui colors (most terminals support this)
-  timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
-  undofile = true,                       -- enable persistent undo
-  updatetime = 300,                      -- faster completion (4000ms default)
-  writebackup = false,                   -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-  expandtab = true,                      -- convert tabs to spaces
-  shiftwidth = 2,                        -- the number of spaces inserted for each indentation
-  tabstop = 2,                           -- insert 2 spaces for a tab
-  cursorline = true,                     -- highlight the current line
-  number = true,                         -- set numbered lines
-  relativenumber = false,                -- set relative numbered lines
-  numberwidth = 2,                       -- set number column width to 2 {default 4}
+	hidden = true,
+	backup = false, -- creates a backup file
+	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+	cmdheight = 1, -- only one line under the status bar for commands
+	completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+	conceallevel = 0, -- so that `` is visible in markdown files
+	fileencoding = "utf-8", -- the encoding written to a file
+	hlsearch = true, -- highlight all matches on previous search pattern
+	ignorecase = true, -- ignore case in search patterns
+	mouse = "a", -- allow the mouse to be used in neovim
+	pumheight = 10, -- pop up menu height
+	showmode = false, -- we don't need to see things like -- INSERT -- anymore
+	showtabline = 0, -- never show tabs
+	smartcase = true, -- smart case
+	smartindent = true, -- make indenting smarter again
+	splitbelow = true, -- force all horizontal splits to go below current window
+	splitright = true, -- force all vertical splits to go to the right of current window
+	swapfile = false, -- creates a swapfile
+	termguicolors = true, -- set term gui colors (most terminals support this)
+	timeoutlen = 1000, -- time to wait for a mapped sequence to complete (in milliseconds)
+	undofile = true, -- enable persistent undo
+	updatetime = 300, -- faster completion (4000ms default)
+	writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+	expandtab = true, -- convert tabs to spaces
+	shiftwidth = 2, -- the number of spaces inserted for each indentation
+	tabstop = 2, -- insert 2 spaces for a tab
+	cursorline = true, -- highlight the current line
+	number = true, -- set numbered lines
+	relativenumber = false, -- set relative numbered lines
+	numberwidth = 2, -- set number column width to 2 {default 4}
 
-  signcolumn = "yes",                    -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                           -- display lines as one long line
-  linebreak = true,                      -- companion to wrap, don't split words
+	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+	wrap = false, -- display lines as one long line
+	linebreak = true, -- companion to wrap, don't split words
 
-  scrolloff = 8,                         -- minimal number of screen lines to keep above and below the cursor
-  sidescrolloff = 8,                     -- minimal number of screen columns either side of cursor if wrap is `false`
-  guifont = "monospace:h17",             -- the font used in graphical neovim applications
-  whichwrap = "bs<>[]hl",                -- which "horizontal" keys are allowed to travel to prev/next line
-  backspace = { 'indent', 'eol', 'start' },
+	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor
+	sidescrolloff = 8, -- minimal number of screen columns either side of cursor if wrap is `false`
+	guifont = "monospace:h17", -- the font used in graphical neovim applications
+	whichwrap = "bs<>[]hl", -- which "horizontal" keys are allowed to travel to prev/next line
+	backspace = { "indent", "eol", "start" },
 
-  foldcolumn = '0',
-  statuscolumn = '  %=%l%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  "}%*',
-  foldlevel = 99,
-  foldlevelstart = 99,
-  foldenable = true,
+	foldcolumn = "0",
+	statuscolumn = '  %=%l%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  "}%*',
+	foldlevel = 99,
+	foldlevelstart = 99,
+	foldenable = true,
 }
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+	vim.opt[k] = v
 end
 
 -- vim.opt.shortmess = "ilmnrx"                      -- flags to shorten vim messages, see :help 'shortmess'
-vim.opt.shortmess:append "c"                         -- don't give |ins-completion-menu| messages
-vim.opt.iskeyword:append "-"                         -- hyphenated words recognized by searches
-
-vim.opt.formatoptions:remove({ "c", "r", "o" })      -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
+vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
+vim.opt.iskeyword:append("-") -- hyphenated words recognized by searches
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 
 -- nvim-tree stuff
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "NvimTree" then
-      vim.opt_local.statuscolumn = ""
-    end
-  end
+	pattern = "*",
+	callback = function()
+		if vim.bo.filetype == "NvimTree" or vim.bo.filetype == "DiffviewFiles" then
+			vim.opt_local.statuscolumn = ""
+		end
+	end,
+})
+
+-- terminal ui
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.wrap = true
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.signcolumn = "no"
+		vim.opt_local.foldcolumn = "0"
+		vim.opt_local.statuscolumn = ""
+	end,
+})
+
+-- terminal autoscroll
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "term://*",
+	command = "startinsert | autocmd CursorHoldI term://* normal! G",
+})
+
+vim.api.nvim_create_autocmd("TermClose", {
+	pattern = "*",
+	command = "if &buftype == 'terminal' | bd! | endif",
 })

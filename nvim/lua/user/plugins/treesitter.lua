@@ -6,6 +6,7 @@ return {
 		end,
 		dependencies = {
 			'nvim-treesitter/nvim-treesitter-textobjects',
+      'yioneko/nvim-yati',
 		},
 		config = function()
 			require('nvim-treesitter.configs').setup({
@@ -26,9 +27,14 @@ return {
           'tsx',
         },
 
+        yati = {
+          enable = true,
+          default_fallback = "auto",
+        },
+
 				highlight = { enable = true },
         autopairs = { enable = true },
-				indent = { enable = true, disable = { 'python', 'css' } },
+        indent = { enable = false },
 			})
 		end,
 	},

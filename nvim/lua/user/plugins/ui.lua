@@ -7,6 +7,7 @@ return {
 		main = "ibl",
 		opts = {
 			indent = { char = "│" },
+			scope = { show_start = false, show_end = false },
 		},
 	},
 	{
@@ -38,7 +39,7 @@ return {
 					lualine_a = { "mode" },
 					lualine_b = { "branch", "diff", "diagnostics" },
 					lualine_c = {},
-					lualine_x = { "encoding", "fileformat", "filetype" },
+					lualine_x = { "filetype" },
 					lualine_y = {},
 					lualine_z = { "location" },
 				},

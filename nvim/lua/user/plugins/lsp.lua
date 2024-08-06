@@ -9,7 +9,7 @@ local function lsp_keymaps(bufnr)
 
 	buf_map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition")
 	buf_map("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto Definition")
-	buf_map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition")
+	buf_map("n", "gi", "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition")
 	buf_map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", "Goto Declaration")
 	buf_map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", "Goto References")
 end
@@ -38,7 +38,6 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"hrsh7th/cmp-nvim-lsp",
 			"b0o/schemastore.nvim",
-			"folke/which-key.nvim",
 		},
 		config = function()
 			-- lsp_zero defaults ----------------------------------------------------
@@ -164,11 +163,6 @@ return {
 				},
 			}
 			vim.diagnostic.config(config)
-
-			require("which-key").add({
-				{ "<leader>l", group = "LSP" },
-				{ "<leader>lf", "<cmd>EslintFixAll<cr>", desc = "ESLint autofix" },
-			})
 		end,
 	},
 	{

@@ -7,16 +7,19 @@ Install dependencies for coq_nvim - python3-venv
 Install dependencies for telescope:
     - https://github.com/BurntSushi/ripgrep
     - https://github.com/sharkdp/fd
+Install unzip
+Install dependencies for git:
+    - lazygit
 
 
 ## TODO:
-- https://github.com/folke/trouble.nvim
-- https://github.com/kevinhwang91/nvim-ufo - done
-- Snippets
-- Add dependency and font installation to setup scripts, add a setup script for windows 
-- Prettier & eslint
-- Copilot 
-- Toggleterm
-- Lazygit
-- Undotree
+- [ ] https://github.com/folke/trouble.nvim
+- [x] https://github.com/kevinhwang91/nvim-ufo - done
+- [ ] Snippets
+- [ ] Add dependency and font installation to setup scripts, add a setup script for windows 
+- [x] Prettier & eslint - done
+- [ ] Copilot 
+- [?] Toggleterm
+- [?] Lazygit
+- [ ] Undotree
 
