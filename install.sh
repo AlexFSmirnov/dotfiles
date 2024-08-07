@@ -1,3 +1,5 @@
+#!/bin/bash
+
 font_urls=(
     "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Bold/HackNerdFont-Bold.ttf"
     "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf"
@@ -40,7 +42,7 @@ install_fonts_linux() {
 
     for url in "${font_urls[@]}"; do
         file_name=$(basename "$url")
-        sudo wget "$url" -O "/usr/local/share/fonts/$file_name"
+        sudo curl -fLo "/usr/local/share/fonts/$file_name" "$url"
     done
 }
 
