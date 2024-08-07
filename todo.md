@@ -13,13 +13,13 @@ Install dependencies for git:
 
 
 ## TODO:
-- [ ] https://github.com/folke/trouble.nvim
+- [-] https://github.com/folke/trouble.nvim
 - [x] https://github.com/kevinhwang91/nvim-ufo - done
 - [ ] Snippets
 - [ ] Add dependency and font installation to setup scripts, add a setup script for windows 
 - [x] Prettier & eslint - done
-- [ ] Copilot 
+- [x] Copilot 
 - [?] Toggleterm
 - [?] Lazygit
-- [ ] Undotree
+- [x] Undotree
 

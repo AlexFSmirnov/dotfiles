@@ -55,38 +55,6 @@ end
 vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 
--- nvim-tree stuff
+-- disable netrw in favor of nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = "*",
-	callback = function()
-		if vim.bo.filetype == "NvimTree" or vim.bo.filetype == "DiffviewFiles" then
-			vim.opt_local.statuscolumn = ""
-		end
-	end,
-})
-
--- terminal ui
-vim.api.nvim_create_autocmd("TermOpen", {
-	pattern = "*",
-	callback = function()
-		vim.opt_local.wrap = true
-		vim.opt_local.number = false
-		vim.opt_local.relativenumber = false
-		vim.opt_local.signcolumn = "no"
-		vim.opt_local.foldcolumn = "0"
-		vim.opt_local.statuscolumn = ""
-	end,
-})
-
--- terminal autoscroll
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "term://*",
-	command = "startinsert | autocmd CursorHoldI term://* normal! G",
-})
-
-vim.api.nvim_create_autocmd("TermClose", {
-	pattern = "*",
-	command = "if &buftype == 'terminal' | bd! | endif",
-})

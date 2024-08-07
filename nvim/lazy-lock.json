@@ -31,10 +31,11 @@
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "a727bd368e70808125b7cf589328cc595faf3d5a" },
-  "remember.nvim": { "branch": "master", "commit": "1b5176283bcf91d052b5755d9ba6e8ce14dfc95b" },
   "ripgrep": { "branch": "master", "commit": "af8c386d5e10eaa4b8cb687c4f5b05893a7ae0ce" },
   "schemastore.nvim": { "branch": "main", "commit": "218a9887085b81b3eb0ee8f1e2d20c4a7fd7b1c9" },
+  "supermaven-nvim": { "branch": "main", "commit": "d71257f431e190d9236d7f30da4c2d659389e91f" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
   "vscode.nvim": { "branch": "main", "commit": "f6c88cdf9d37d5c0bb1e492a13a3b4b4cc4dd13e" },
   "which-key.nvim": { "branch": "main", "commit": "6c1584eb76b55629702716995cca4ae2798a9cca" }

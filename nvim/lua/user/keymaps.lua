@@ -138,3 +138,4 @@ map("n", "<leader>gfb", "<cmd>Telescope git_branches<cr>", { desc = "Find branch
 
 -- LSP
 map("n", "<leader>lf", "<cmd>EslintFixAll<cr>", { desc = "ESLint autofix" })
+map("n", "<leader>lr", "<cmd>LspRestartFixAll<cr>", { desc = "Restart LSP" })
