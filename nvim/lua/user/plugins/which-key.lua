@@ -49,6 +49,8 @@ return {
 			{ "<leader>t", group = "Terminal" },
 			{ "<leader>f", group = "Find" },
 			{ "<leader>g", group = "Git" },
+			{ "<leader>gs", group = "Git Stash" },
+			{ "<leader>gf", group = "Git Find" },
 			{ "<leader>l", group = "LSP" },
 		})
 	end,

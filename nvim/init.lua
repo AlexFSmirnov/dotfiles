@@ -1,4 +1,4 @@
-require "user.configs"
+require "user.utils"
 require "user.options"
 require "user.keymaps"
 

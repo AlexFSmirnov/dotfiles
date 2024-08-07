@@ -44,6 +44,8 @@ return {
 
 							["<A-J>"] = actions.preview_scrolling_down,
 							["<A-K>"] = actions.preview_scrolling_up,
+
+							["<A-x>"] = actions.delete_buffer,
 						},
 					},
 				},

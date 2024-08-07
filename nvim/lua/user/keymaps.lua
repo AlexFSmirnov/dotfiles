@@ -28,6 +28,7 @@ map("", "H", "^")
 map("", "L", "$")
 
 map("i", "<C-BS>", "<C-w>")
+map("c", "<C-BS>", "<C-w>", { silent = false })
 
 -- Clear search highlighting with <leader> and c
 map("n", "<leader>c", "<cmd>nohl<CR>", { desc = "Clear search highlighting" })
@@ -53,6 +54,7 @@ map("n", "<A-q>", "<cmd>close<cr>")
 map("i", "<A-q>", "<cmd>close<cr>")
 map("t", "<A-q>", "<cmd>close<cr>")
 map("n", "<leader>wx", "<cmd>close<cr>", { desc = "Close window" })
+map("n", "<leader>wq", "<cmd>close<cr>", { desc = "Close window" })
 map("n", "<leader>wX", "<cmd>bd!<cr>", { desc = "Delete buffer" })
 
 -- Resize windows with arrows
@@ -129,6 +131,10 @@ map("n", "<leader>gB", '<cmd>lua require("gitsigns").blame_line{full=true}<cr>',
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Diffview" })
 map("n", "<leader>gx", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
 map("n", "<leader>gc", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
+map("n", "<leader>gq", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" })
+map("n", "<leader>gss", "<cmd>lua StashStaged()<cr>", { desc = "Stash staged" })
+map("n", "<leader>gfs", "<cmd>Telescope git_stash<cr>", { desc = "Find stashes" })
+map("n", "<leader>gfb", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
 
 -- LSP
 map("n", "<leader>lf", "<cmd>EslintFixAll<cr>", { desc = "ESLint autofix" })
