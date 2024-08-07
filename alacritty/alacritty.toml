@@ -1,0 +1,14 @@
+[font]
+normal = { family = "Hack Nerd Font", style = "Regular" }
+bold = { family = "Hack Nerd Font", style = "Bold" }
+italic = { family = "Hack Nerd Font", style = "Italic" }
+bold_italic = { family = "Hack Nerd Font", style = "BoldItalic" }
+size = 10.0
+
+
+[keyboard]
+bindings = [
+  { key = "Back", mods = "Control", Chars = "\u001b[127;5u" },
+  { key = "Space", mods = "Control", Chars = "\u0000" },
+  { key = "V", mods = "Control", Action = "Paste" }
+]

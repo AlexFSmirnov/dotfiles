@@ -23,6 +23,6 @@ wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/BoldI
 mkdir -p ~/.config/alacritty
 cp -a alacritty/. ~/.config/alacritty
 
-sudo apt install fd
-sudo apt install ripgrep
-sudo apt install unzip
+brew install fd
+brew install ripgrep
+brew install unzip
