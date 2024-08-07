@@ -52,6 +52,7 @@ return {
 			{ "<leader>gs", group = "Git Stash" },
 			{ "<leader>gf", group = "Git Find" },
 			{ "<leader>l", group = "LSP" },
+			{ "<leader>b", group = "Tab bar" },
 		})
 	end,
 }

@@ -63,6 +63,15 @@ map("n", "<C-Down>", "<cmd>resize -2<CR>")
 map("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
+-- Tab navigation
+map("n", "<C-h>", "gT")
+map("n", "<C-l>", "gt")
+map("n", "<leader>br", "<cmd>lua SetCurrentTabName(vim.fn.input('Tab name: '))<cr>", { desc = "Rename current tab" })
+map("n", "<leader>bc", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "<leader>bn", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "<leader>bq", "<cmd>tabclose<cr>", { desc = "Close tab" })
+map("n", "<leader>bx", "<cmd>tabclose<cr>", { desc = "Close tab" })
+
 -- Folds
 map("n", "zz", "za")
 map("n", "zc", "za")
@@ -76,6 +85,8 @@ map("t", "<A-h>", "<C-\\><C-n><C-w>h")
 map("t", "<A-j>", "<C-\\><C-n><C-w>j")
 map("t", "<A-k>", "<C-\\><C-n><C-w>k")
 map("t", "<A-l>", "<C-\\><C-n><C-w>l")
+map("t", "<C-h>", "<C-\\><C-n>gT")
+map("t", "<C-l>", "<C-\\><C-n>gt")
 --    Cycle terminal buffers with Shift+Alt+jk
 map("t", "<A-J>", "<C-\\><C-n><cmd>lua CycleTerminals(1)<cr>")
 map("t", "<A-K>", "<C-\\><C-n><cmd>lua CycleTerminals(-1)<cr>")

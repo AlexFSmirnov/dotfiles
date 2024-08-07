@@ -15,6 +15,7 @@ return {
 
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/lua/user/snippets/" } })
 
 			local kind_icons = {
 				Text = "",
@@ -48,6 +49,9 @@ return {
 				select = false,
 			}
 
+      local cmp_action = require('lsp-zero.cmp').action()
+      local cmp_mapping = cmp.mapping
+
 			cmp.setup({
 				completion = {
 					completeopt = "menu,menuone,noinsert",
@@ -58,29 +62,28 @@ return {
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-k>"] = cmp.mapping.select_prev_item(),
-					["<C-j>"] = cmp.mapping.select_next_item(),
-					["<C-d>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
+					["<C-Space>"] = cmp_mapping.complete(),
+					["<C-k>"] = cmp_mapping.select_prev_item(),
+					["<C-j>"] = cmp_mapping.select_next_item(),
+					["<C-d>"] = cmp_mapping.scroll_docs(-4),
+					["<C-f>"] = cmp_mapping.scroll_docs(4),
+					["<CR>"] = cmp_mapping(function(fallback)
+						if luasnip.expand_or_jumpable() then
 							cmp.confirm(confirmOpts)
-						elseif luasnip.expand_or_jumpable() then
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					["<Tab>"] = cmp_mapping(function(fallback)
+						if luasnip.expand_or_jumpable() then
 							luasnip.expand_or_jump()
+            elseif cmp.visible() then
+							cmp.confirm(confirmOpts)
 						else
 							fallback()
 						end
 					end, { "i", "s" }),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if cmp.visible() then
-							cmp.select_prev_item()
-						elseif luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end, { "i", "s" }),
+					["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 				}),
 				formatting = {
 					fields = { "kind", "abbr", "menu" },

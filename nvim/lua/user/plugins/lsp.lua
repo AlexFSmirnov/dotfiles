@@ -171,12 +171,12 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		event = "VeryLazy",
-		opts = function()
+		config = function()
 			vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 				command = "Format",
 			})
 
-			return {
+			require("formatter").setup({
 				filetype = {
 					lua = {
 						require("formatter.filetypes.lua").stylua,
@@ -200,7 +200,7 @@ return {
 						require("formatter.filetypes.any").remove_trailing_whitespace,
 					},
 				},
-			}
+			})
 		end,
 	},
 }
