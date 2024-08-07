@@ -41,7 +41,6 @@ local options = {
 	backspace = { "indent", "eol", "start" },
 
 	foldcolumn = "0",
-	statuscolumn = '  %=%l%#FoldColumn#%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  "}%*',
 	foldlevel = 99,
 	foldlevelstart = 99,
 	foldenable = true,

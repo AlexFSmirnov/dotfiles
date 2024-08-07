@@ -24,6 +24,32 @@ return {
 		end,
 	},
 	{
+		"luukvbaal/statuscol.nvim",
+		config = function()
+			local builtin = require("statuscol.builtin")
+			require("statuscol").setup({
+				segments = {
+					{ text = { "%s" }, click = "v:lua.ScSa" },
+					-- Line number
+					{
+						text = { builtin.lnumfunc, " " },
+						condition = { true, builtin.not_empty },
+						click = "v:lua.ScLa",
+					},
+					-- Fold column with custom icons
+					{
+						text = {
+							"%#FoldColumn#",
+							'%{foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? " " : " ") : "  "}',
+							"%*",
+						},
+						click = "v:lua.ScFa",
+					},
+				},
+			})
+		end,
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
