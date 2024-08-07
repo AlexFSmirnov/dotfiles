@@ -31,7 +31,7 @@ map("i", "<C-BS>", "<C-w>")
 map("c", "<C-BS>", "<C-w>", { silent = false })
 
 -- Clear search highlighting with <leader> and c
-map("n", "<leader>c", "<cmd>nohl<CR>", { desc = "Clear search highlighting" })
+map("n", "<leader>lc", "<cmd>nohl<CR>", { desc = "Clear search highlighting" })
 
 -- Buffer navigation
 map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Switch to last used buffer" })
@@ -49,6 +49,10 @@ map("n", "<A-h>", "<C-w>h")
 map("n", "<A-j>", "<C-w>j")
 map("n", "<A-k>", "<C-w>k")
 map("n", "<A-l>", "<C-w>l")
+map("t", "<A-h>", "<C-\\><C-n><C-w>h")
+map("t", "<A-j>", "<C-\\><C-n><C-w>j")
+map("t", "<A-k>", "<C-\\><C-n><C-w>k")
+map("t", "<A-l>", "<C-\\><C-n><C-w>l")
 map("n", "<A-w>", "<C-w>w")
 map("n", "<A-q>", "<cmd>close<cr>")
 map("i", "<A-q>", "<cmd>close<cr>")
@@ -64,13 +68,16 @@ map("n", "<C-Left>", "<cmd>vertical resize -2<CR>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 -- Tab navigation
-map("n", "<C-h>", "gT")
-map("n", "<C-l>", "gt")
-map("n", "<leader>br", "<cmd>lua SetCurrentTabName(vim.fn.input('Tab name: '))<cr>", { desc = "Rename current tab" })
-map("n", "<leader>bc", "<cmd>tabnew<cr>", { desc = "New tab" })
-map("n", "<leader>bn", "<cmd>tabnew<cr>", { desc = "New tab" })
-map("n", "<leader>bq", "<cmd>tabclose<cr>", { desc = "Close tab" })
-map("n", "<leader>bx", "<cmd>tabclose<cr>", { desc = "Close tab" })
+map("n", "<C-n>", "gT")
+map("n", "<C-m>", "gt")
+map("t", "<C-n>", "<C-\\><C-n>gT")
+map("t", "<C-m>", "<C-\\><C-n>gt")
+map("n", "<leader>tr", "<cmd>lua SetCurrentTabName(vim.fn.input('Tab name: '))<cr>", { desc = "Rename current tab" })
+map("n", "<leader>tt", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "<leader>tc", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "<leader>tn", "<cmd>tabnew<cr>", { desc = "New tab" })
+map("n", "<leader>tq", "<cmd>tabclose<cr>", { desc = "Close tab" })
+map("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
 
 -- Folds
 map("n", "zz", "za")
@@ -80,43 +87,34 @@ map("v", "zc", "zf")
 -- Terminal
 map("t", "<Esc>", "<C-\\><C-n>")
 map("t", "jj", "<C-\\><C-n>")
---    Navigate away from terminal windows with Alt+hjkl
-map("t", "<A-h>", "<C-\\><C-n><C-w>h")
-map("t", "<A-j>", "<C-\\><C-n><C-w>j")
-map("t", "<A-k>", "<C-\\><C-n><C-w>k")
-map("t", "<A-l>", "<C-\\><C-n><C-w>l")
-map("t", "<C-h>", "<C-\\><C-n>gT")
-map("t", "<C-l>", "<C-\\><C-n>gt")
---    Cycle terminal buffers with Shift+Alt+jk
 map("t", "<A-J>", "<C-\\><C-n><cmd>lua CycleTerminals(1)<cr>")
 map("t", "<A-K>", "<C-\\><C-n><cmd>lua CycleTerminals(-1)<cr>")
 map("n", "<A-J>", "<cmd>lua CycleTerminals(1)<cr>")
 map("n", "<A-K>", "<cmd>lua CycleTerminals(-1)<cr>")
 --    Open terminals
-map("n", "<leader>tt", "<cmd>lua OpenOrCreateTerm()<cr>", { desc = "Open terminal" })
-map("n", "<leader>tn", "<cmd>term<cr>", { desc = "New terminal" })
-map("n", "<leader>tc", "<cmd>term<cr>", { desc = "New terminal" })
+map("n", "<leader>cc", "<cmd>lua OpenOrCreateTerm()<cr>", { desc = "Open terminal" })
+map("n", "<leader>cn", "<cmd>term<cr>", { desc = "New terminal" })
 map(
   "n",
-  "<leader>th",
+  "<leader>ch",
   "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (H)" }
 )
 map(
   "n",
-  "<leader>tj",
+  "<leader>cj",
   "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (H)" }
 )
 map(
   "n",
-  "<leader>tv",
+  "<leader>cv",
   "<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (V)" }
 )
 map(
   "n",
-  "<leader>tl",
+  "<leader>cl",
   "<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (V)" }
 )

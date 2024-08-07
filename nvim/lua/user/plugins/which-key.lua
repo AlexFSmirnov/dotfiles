@@ -46,13 +46,13 @@ return {
     wk.add({
       { "<leader>w", group = "Window" },
       { "<leader>s", group = "Split" },
-      { "<leader>t", group = "Terminal" },
+      { "<leader>t", group = "Tab" },
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
       { "<leader>gs", group = "Git Stash" },
       { "<leader>gf", group = "Git Find" },
       { "<leader>l", group = "LSP" },
-      { "<leader>b", group = "Tab bar" },
+      { "<leader>c", group = "CMD Terminal" },
     })
   end,
 }
