@@ -16,3 +16,4 @@ bindings = [
 opacity = 0.9
 blur = true
 startup_mode = "Maximized"
+option_as_alt = "Both"
