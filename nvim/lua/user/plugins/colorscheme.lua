@@ -1,11 +1,10 @@
 return {
-  'Mofiqul/vscode.nvim',
+  "Mofiqul/vscode.nvim",
   lazy = false,
   priority = 100,
   config = function()
-    require('vscode').setup({})
+    require("vscode").setup({})
 
-    vim.cmd.colorscheme 'vscode'
-  end
+    vim.cmd.colorscheme("vscode")
+  end,
 }
-

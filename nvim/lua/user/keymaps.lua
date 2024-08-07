@@ -1,11 +1,11 @@
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
+  local options = { noremap = true, silent = true }
 
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
 
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Remap space as leader key
@@ -97,28 +97,28 @@ map("n", "<leader>tt", "<cmd>lua OpenOrCreateTerm()<cr>", { desc = "Open termina
 map("n", "<leader>tn", "<cmd>term<cr>", { desc = "New terminal" })
 map("n", "<leader>tc", "<cmd>term<cr>", { desc = "New terminal" })
 map(
-	"n",
-	"<leader>th",
-	"<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
-	{ desc = "Open terminal (H)" }
+  "n",
+  "<leader>th",
+  "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  { desc = "Open terminal (H)" }
 )
 map(
-	"n",
-	"<leader>tj",
-	"<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
-	{ desc = "Open terminal (H)" }
+  "n",
+  "<leader>tj",
+  "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  { desc = "Open terminal (H)" }
 )
 map(
-	"n",
-	"<leader>tv",
-	"<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
-	{ desc = "Open terminal (V)" }
+  "n",
+  "<leader>tv",
+  "<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  { desc = "Open terminal (V)" }
 )
 map(
-	"n",
-	"<leader>tl",
-	"<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
-	{ desc = "Open terminal (V)" }
+  "n",
+  "<leader>tl",
+  "<cmd>vsplit<cr><cmd>vertical resize 60<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  { desc = "Open terminal (V)" }
 )
 
 -- nvim-tree
