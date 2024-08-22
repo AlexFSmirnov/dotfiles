@@ -86,3 +86,12 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+if [ -f .nvmrc ]; then
+  nvm use
+else
+  nvm use 14
+fi
+
+if [ "$TMUX" = "" ]; then tmux; fi
+
