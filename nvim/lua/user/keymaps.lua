@@ -151,7 +151,8 @@ map("n", "<leader>gfs", "<cmd>Telescope git_stash<cr>", { desc = "Find stashes" 
 map("n", "<leader>gfb", "<cmd>Telescope git_branches<cr>", { desc = "Find branches" })
 
 -- LSP
-map("n", "<leader>lf", "<cmd>EslintFixAll<cr>", { desc = "ESLint autofix" })
+map("n", "<leader>lf", "<cmd>Format<cr>", { desc = "ESLint autofix" })
+map("n", "<leader>le", "<cmd>EslintFixAll<cr>", { desc = "ESLint autofix" })
 map("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
 map("n", "E", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open diagnostic" })
