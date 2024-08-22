@@ -172,7 +172,7 @@ return {
     },
     event = "VeryLazy",
     config = function()
-      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         command = "FormatWrite",
       })
 
