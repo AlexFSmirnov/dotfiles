@@ -23,6 +23,8 @@ map("c", "jj", "<C-c>")
 
 map("n", "<C-j>", "5<C-e>")
 map("n", "<C-k>", "5<C-y>")
+map("n", "<C-h>", "5zh")
+map("n", "<C-l>", "5zl")
 
 map("", "H", "^")
 map("", "L", "$")
@@ -97,13 +99,13 @@ map("n", "<leader>cn", "<cmd>term<cr>", { desc = "New terminal" })
 map(
   "n",
   "<leader>ch",
-  "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  "<cmd>split<cr><cmd>resize 14<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (H)" }
 )
 map(
   "n",
   "<leader>cj",
-  "<cmd>split<cr><cmd>resize 12<cr><cmd>lua OpenOrCreateTerm()<cr>",
+  "<cmd>split<cr><cmd>resize 14<cr><cmd>lua OpenOrCreateTerm()<cr>",
   { desc = "Open terminal (H)" }
 )
 map(
@@ -147,4 +149,12 @@ map("n", "<leader>gfb", "<cmd>Telescope git_branches<cr>", { desc = "Find branch
 
 -- LSP
 map("n", "<leader>lf", "<cmd>EslintFixAll<cr>", { desc = "ESLint autofix" })
-map("n", "<leader>lr", "<cmd>LspRestartFixAll<cr>", { desc = "Restart LSP" })
+map("n", "<leader>lr", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { desc = "Hover Documentation" })
+map("n", "E", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open diagnostic" })
+map("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Jump To Definition" })
+map("n", "<leader>jd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Jump To Definition" })
+map("n", "<leader>ji", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Jump To Type Definition" })
+map("n", "<leader>jt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { desc = "Jump To Type Definition" })
+map("n", "<leader>jD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { desc = "Jump To Declaration" })
+map("n", "<leader>jr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "Jump To References" })

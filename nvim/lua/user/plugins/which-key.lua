@@ -53,6 +53,7 @@ return {
       { "<leader>gf", group = "Git Find" },
       { "<leader>l", group = "LSP" },
       { "<leader>c", group = "CMD Terminal" },
+      { "<leader>j", group = "Jump To" },
     })
   end,
 }

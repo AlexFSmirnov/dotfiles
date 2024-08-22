@@ -38,54 +38,54 @@ match MyColorC /\%<101v.\%>100v/
 " }
 
 " Vundle stuff (:PluginInstall to install plugins) {
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'mbbill/undotree'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-latex/vim-latex'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'pangloss/vim-javascript'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'google/vim-searchindex'
-Plugin 'stevearc/vim-arduino'
-Plugin 'sudar/vim-arduino-syntax'
-
-call vundle#end()
-filetype plugin indent on
+" set nocompatible
+" filetype off
+"
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+"
+" Plugin 'VundleVim/Vundle.vim'
+"
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'mbbill/undotree'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'godlygeek/tabular'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'vim-latex/vim-latex'
+" Plugin 'wesQ3/vim-windowswap'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'google/vim-searchindex'
+" Plugin 'stevearc/vim-arduino'
+" Plugin 'sudar/vim-arduino-syntax'
+"
+" call vundle#end()
+" filetype plugin indent on
 " }
 
 " Plugin settings {
-let g:leaderkey='\'
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
-
-map gc :call NERDComment(0, "toggle")<Enter>
-map gu :call NERDComment(0, "uncomment")<Enter>
+" let g:leaderkey='\'
+"
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_math = 1
+"
+" let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+"
+" let g:UltiSnipsExpandTrigger="<c-d>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+"
+" map gc :call NERDComment(0, "toggle")<Enter>
+" map gu :call NERDComment(0, "uncomment")<Enter>
 "}
 
 " General options {
