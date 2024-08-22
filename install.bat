@@ -1,6 +1,6 @@
 REM Copy Alacritty configuration
 mkdir "%APPDATA%\alacritty"
-xcopy /s /e alacritty "%APPDATA%\alacritty"
+xcopy /y "alacritty\alacritty-windows.toml" "%APPDATA%\alacritty\alacritty.toml"
 
 REM Create fonts directory
 mkdir C:\Windows\Fonts
