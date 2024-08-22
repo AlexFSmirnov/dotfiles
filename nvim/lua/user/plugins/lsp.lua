@@ -172,8 +172,8 @@ return {
     },
     event = "VeryLazy",
     config = function()
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        command = "Format",
+      vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+        command = "FormatWriteLock",
       })
 
       require("formatter").setup({
