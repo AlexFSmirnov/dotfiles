@@ -57,3 +57,4 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't insert the current comm
 -- disable netrw in favor of nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+

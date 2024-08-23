@@ -48,6 +48,12 @@ return {
             },
           },
         },
+        pickers = {
+          buffers = {
+            ignore_current_buffer = true,
+            sort_mru = true,
+          },
+        },
       })
     end,
   },
