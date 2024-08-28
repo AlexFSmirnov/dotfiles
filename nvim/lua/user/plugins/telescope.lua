@@ -6,12 +6,30 @@ return {
       "nvim-lua/plenary.nvim",
       "BurntSushi/ripgrep",
       "sharkdp/fd",
+      {
+        "nvim-telescope/telescope-live-grep-args.nvim",
+        version = "^1.0.0",
+      },
     },
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
+      local lga_actions = require("telescope-live-grep-args.actions")
 
       telescope.setup({
+        extensions = {
+          live_grep_args = {
+            auto_quoting = false,
+            mappings = {
+              i = {
+                ["<C-k>"] = lga_actions.quote_prompt(),
+                ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                -- freeze the current list and start a fuzzy search in the frozen list
+                ["<C-space>"] = actions.to_fuzzy_refine,
+              },
+            },
+          },
+        },
         defaults = {
           dynamic_preview_title = true,
           sorting_strategy = "ascending",
@@ -29,7 +47,6 @@ return {
               ["<A-j>"] = actions.move_selection_next,
               ["<A-k>"] = actions.move_selection_previous,
 
-              ["jj"] = actions.close,
               ["<A-q>"] = actions.close,
               ["<Esc>"] = actions.close,
 
@@ -55,6 +72,8 @@ return {
           },
         },
       })
+
+      telescope.load_extension("live_grep_args")
     end,
   },
 }

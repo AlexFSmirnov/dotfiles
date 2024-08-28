@@ -64,7 +64,7 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = {
-            { "branch", icons_enabled = true, icon = "" },
+            { "branch", icon = "" },
             "diff",
             { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
           },
