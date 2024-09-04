@@ -10,3 +10,6 @@ gcpp() {
 alias susp="systemctl suspend"
 
 alias vim="TERM=xterm vim"
+
+alias python="python3"
+alias pip="pip3"
