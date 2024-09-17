@@ -114,6 +114,13 @@ return {
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
             cmd = { "typescript-language-server", "--stdio" },
+            init_options = {
+              preferences = {
+                -- other preferences...
+                importModuleSpecifierPreference = "relative",
+                importModuleSpecifierEnding = "minimal",
+              },
+            },
           }),
 
           lspconfig.eslint.setup({
