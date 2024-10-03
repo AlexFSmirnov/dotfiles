@@ -35,6 +35,7 @@ map("c", "<C-BS>", "<C-w>", { silent = false })
 -- Utils
 map("n", "<leader>kc", "<cmd>nohl<CR>", { desc = "Clear search highlighting" })
 map("n", "<leader>km", "<cmd>%s/\\r//g<CR>", { desc = "Clear Windows line breaks" })
+map("n", "<leader>kw", "<cmd>noautocmd write<CR>", { desc = "Write without formatting" })
 
 -- Buffer navigation
 map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Switch to last used buffer" })
@@ -128,9 +129,19 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvim-tree" })
 -- Telescope
 local find_terminals = "<cmd>lua require('telescope.builtin').buffers({ default_text = 'term:/' })<cr>"
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-map("n", "<leader>fz", "<cmd>lua require('telescope.builtin').grep_string({ search = '' })<cr>", { desc = "Fuzzy grep" })
+map(
+  "n",
+  "<leader>fz",
+  "<cmd>lua require('telescope.builtin').grep_string({ search = '' })<cr>",
+  { desc = "Fuzzy grep" }
+)
 map("n", "<leader>fu", "<cmd>Telescope grep_string<cr>", { desc = "Grep under cursor" })
-map("n", "<leader>fg", "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", { desc = "Live grep" })
+map(
+  "n",
+  "<leader>fg",
+  "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>",
+  { desc = "Live grep" }
+)
 map("n", "<leader>fa", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
 map("n", "<leader>fp", "<cmd>Telescope oldfiles<cr>", { desc = "Find previous files" })
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<cr>", { desc = "Find references" })
