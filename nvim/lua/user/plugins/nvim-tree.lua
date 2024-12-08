@@ -12,6 +12,11 @@ return {
         enable = true,
         update_cwd = true,
       },
+      git = {
+        enable = true,
+        ignore = false,
+        timeout = 500,
+      },
     })
 
     vim.api.nvim_create_autocmd("FileType", {

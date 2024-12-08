@@ -25,6 +25,7 @@ return {
           "typescript",
           "javascript",
           "tsx",
+          "svelte",
         },
 
         yati = {

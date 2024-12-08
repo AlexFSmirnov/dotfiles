@@ -36,6 +36,7 @@ map("c", "<C-BS>", "<C-w>", { silent = false })
 map("n", "<leader>kc", "<cmd>nohl<CR>", { desc = "Clear search highlighting" })
 map("n", "<leader>km", "<cmd>%s/\\r//g<CR>", { desc = "Clear Windows line breaks" })
 map("n", "<leader>kw", "<cmd>noautocmd write<CR>", { desc = "Write without formatting" })
+map("n", "<leader>kp", "<cmd>echo expand('%')<CR>", { desc = "Show current file path" })
 
 -- Buffer navigation
 map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Switch to last used buffer" })

@@ -26,6 +26,9 @@ return {
     end,
   },
   {
+    "lbrayner/vim-rzip",
+  },
+  {
     "williamboman/mason.nvim",
     config = true,
   },
@@ -77,6 +80,9 @@ return {
           "jsonls",
           "cssls",
           "vimls",
+          "svelte",
+          "tailwindcss",
+          "clangd",
         },
         handlers = {
           lsp_zero.default_setup,
@@ -132,6 +138,31 @@ return {
               format = { enable = true },
               lint = { enable = true },
             },
+          }),
+
+          lspconfig.svelte.setup({
+            filetypes = { "svelte", "html", "css" },
+          }),
+
+          lspconfig.clangd.setup({
+            filetypes = { "c", "cpp", "objc", "objcpp" },
+            on_attach = function(client, bufnr)
+              vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+            end,
+          }),
+
+          lspconfig.tailwindcss.setup({
+            filetypes = {
+              "html",
+              "css",
+              "scss",
+              "javascript",
+              "javascriptreact",
+              "typescript",
+              "typescriptreact",
+              "svelte",
+            },
+            root_dir = lspconfig.util.root_pattern("tailwind.config.js", "package.json"),
           }),
         },
       })
@@ -201,6 +232,9 @@ return {
             require("formatter.filetypes.typescript").prettierd,
           },
           typescriptreact = {
+            require("formatter.filetypes.typescriptreact").prettierd,
+          },
+          svelte = {
             require("formatter.filetypes.typescriptreact").prettierd,
           },
           ["*"] = {
