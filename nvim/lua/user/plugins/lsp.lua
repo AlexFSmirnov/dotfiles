@@ -41,8 +41,11 @@ return {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "b0o/schemastore.nvim",
+      "lukas-reineke/lsp-format.nvim",
     },
     config = function()
+      local on_attach = require("lsp-format").on_attach
+
       -- lsp_zero defaults ----------------------------------------------------
       local lsp_zero = require("lsp-zero")
 
@@ -117,19 +120,23 @@ return {
           }),
 
           lspconfig.tsserver.setup({
+            on_attach = on_attach,
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
             cmd = { "typescript-language-server", "--stdio" },
             init_options = {
               preferences = {
                 -- other preferences...
-                importModuleSpecifierPreference = "relative",
+                -- importModuleSpecifierPreference = "relative",
+                -- importModuleSpecifier = "non-relative",
+                importModuleSpecifier = "auto",
                 importModuleSpecifierEnding = "minimal",
               },
             },
           }),
 
           lspconfig.eslint.setup({
+            on_attach = on_attach,
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
             settings = {
               workingDirectory = {
@@ -203,45 +210,45 @@ return {
       vim.diagnostic.config(config)
     end,
   },
-  {
-    "mhartington/formatter.nvim",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    event = "VeryLazy",
-    config = function()
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        command = "FormatWrite",
-      })
-
-      require("formatter").setup({
-        filetype = {
-          lua = {
-            require("formatter.filetypes.lua").stylua,
-          },
-          json = {
-            require("formatter.filetypes.json").prettierd,
-          },
-          javascript = {
-            require("formatter.filetypes.javascript").prettierd,
-          },
-          javascriptreact = {
-            require("formatter.filetypes.javascriptreact").prettierd,
-          },
-          typescript = {
-            require("formatter.filetypes.typescript").prettierd,
-          },
-          typescriptreact = {
-            require("formatter.filetypes.typescriptreact").prettierd,
-          },
-          svelte = {
-            require("formatter.filetypes.typescriptreact").prettierd,
-          },
-          ["*"] = {
-            require("formatter.filetypes.any").remove_trailing_whitespace,
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "mhartington/formatter.nvim",
+  --   dependencies = {
+  --     "neovim/nvim-lspconfig",
+  --   },
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  --       command = "FormatWrite",
+  --     })
+  --
+  --     require("formatter").setup({
+  --       filetype = {
+  --         lua = {
+  --           require("formatter.filetypes.lua").stylua,
+  --         },
+  --         json = {
+  --           require("formatter.filetypes.json").prettierd,
+  --         },
+  --         javascript = {
+  --           require("formatter.filetypes.javascript").prettierd,
+  --         },
+  --         javascriptreact = {
+  --           require("formatter.filetypes.javascriptreact").prettierd,
+  --         },
+  --         typescript = {
+  --           require("formatter.filetypes.typescript").prettierd,
+  --         },
+  --         typescriptreact = {
+  --           require("formatter.filetypes.typescriptreact").prettierd,
+  --         },
+  --         svelte = {
+  --           require("formatter.filetypes.typescriptreact").prettierd,
+  --         },
+  --         ["*"] = {
+  --           require("formatter.filetypes.any").remove_trailing_whitespace,
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }

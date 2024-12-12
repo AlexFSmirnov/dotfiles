@@ -70,6 +70,9 @@ return {
             ignore_current_buffer = true,
             sort_mru = true,
           },
+          find_files = {
+            hidden = true,
+          },
         },
       })
 
