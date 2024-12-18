@@ -1,4 +1,6 @@
 require("user.utils.autocmds")
-require("user.utils.terminal")
 require("user.utils.git")
 require("user.utils.tabline")
+require("user.utils.buffer-cycle")
+require("user.utils.terminal-cycle")
+require("user.utils.cycle")

@@ -40,6 +40,8 @@ map("n", "<leader>kp", "<cmd>echo expand('%')<CR>", { desc = "Show current file 
 
 -- Buffer navigation
 map("n", "<leader><tab>", "<cmd>b#<cr>", { desc = "Switch to last used buffer" })
+map("n", "<A-J>", "<cmd>lua CycleBuffers(1)<CR>")
+map("n", "<A-K>", "<cmd>lua CycleBuffers(-1)<CR>")
 
 -- Splits
 map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Horizontal split" })
@@ -94,8 +96,6 @@ map("t", "<Esc>", "<C-\\><C-n>")
 map("t", "jj", "<C-\\><C-n>")
 map("t", "<A-J>", "<C-\\><C-n><cmd>lua CycleTerminals(1)<cr>")
 map("t", "<A-K>", "<C-\\><C-n><cmd>lua CycleTerminals(-1)<cr>")
-map("n", "<A-J>", "<cmd>lua CycleTerminals(1)<cr>")
-map("n", "<A-K>", "<cmd>lua CycleTerminals(-1)<cr>")
 --    Open terminals
 map("n", "<leader>cc", "<cmd>lua OpenOrCreateTerm()<cr>", { desc = "Open terminal" })
 map("n", "<leader>cn", "<cmd>term<cr>", { desc = "New terminal" })

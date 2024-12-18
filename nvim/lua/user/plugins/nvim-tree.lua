@@ -14,7 +14,7 @@ return {
       },
       git = {
         enable = true,
-        ignore = false,
+        ignore = true,
         timeout = 500,
       },
       on_attach = function(bufnr)

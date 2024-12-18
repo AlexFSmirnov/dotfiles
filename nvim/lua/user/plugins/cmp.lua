@@ -52,6 +52,16 @@ return {
       local cmp_action = require("lsp-zero.cmp").action()
       local cmp_mapping = cmp.mapping
 
+      local tab = cmp_mapping(function(fallback)
+        if luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        elseif cmp.visible() then
+          cmp.confirm(confirmOpts)
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
       cmp.setup({
         completion = {
           completeopt = "menu,menuone,noinsert",
@@ -63,8 +73,8 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-Space>"] = cmp_mapping.complete(),
-          ["<C-k>"] = cmp_mapping.select_prev_item(),
-          ["<C-j>"] = cmp_mapping.select_next_item(),
+          ["<A-k>"] = cmp_mapping.select_prev_item(),
+          ["<A-j>"] = cmp_mapping.select_next_item(),
           ["<C-d>"] = cmp_mapping.scroll_docs(-4),
           ["<C-f>"] = cmp_mapping.scroll_docs(4),
           ["<CR>"] = cmp_mapping(function(fallback)
@@ -74,15 +84,8 @@ return {
               fallback()
             end
           end, { "i", "s" }),
-          ["<Tab>"] = cmp_mapping(function(fallback)
-            if luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            elseif cmp.visible() then
-              cmp.confirm(confirmOpts)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+          ["<Tab>"] = tab,
+          ["<A-o>"] = tab,
           ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
         }),
         formatting = {
