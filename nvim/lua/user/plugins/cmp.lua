@@ -54,7 +54,17 @@ return {
       local cmp_action = require("lsp-zero.cmp").action()
       local cmp_mapping = cmp.mapping
 
-      local jumpOrTab = cmp_mapping(function(fallback)
+      local supertab = cmp_mapping(function(fallback)
+        if cmp.visible() then
+          cmp.confirm(confirmOpts)
+        elseif luasnip.expand_or_jumpable() then
+          luasnip.expand_or_jump()
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
+      local jumpOrCmpConfirm = cmp_mapping(function(fallback)
         if luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif cmp.visible() then
@@ -64,15 +74,15 @@ return {
         end
       end, { "i", "s" })
 
-      local cmpConfirm = cmp_mapping(function(fallback)
-        if cmp.visible() then
+      local snippetCmpConfirm = cmp_mapping(function(fallback)
+        if luasnip.expand_or_jumpable() and cmp.visible() then
           cmp.confirm(confirmOpts)
         else
           fallback()
         end
       end, { "i", "s" })
 
-      local suggestionOrConfirm = cmp_mapping(function(fallback)
+      local suggestionOrCmpConfirm = cmp_mapping(function(fallback)
         if suggestion.has_suggestion() then
           suggestion.on_accept_suggestion()
         elseif cmp.visible() then
@@ -97,9 +107,9 @@ return {
           ["<A-j>"] = cmp_mapping.select_next_item(),
           ["<C-d>"] = cmp_mapping.scroll_docs(-4),
           ["<C-f>"] = cmp_mapping.scroll_docs(4),
-          ["<CR>"] = cmpConfirm,
-          ["<Tab>"] = jumpOrTab,
-          ["<A-o>"] = suggestionOrConfirm,
+          ["<CR>"] = snippetCmpConfirm,
+          ["<Tab>"] = jumpOrCmpConfirm,
+          ["<A-o>"] = suggestionOrCmpConfirm,
           ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
         }),
         formatting = {
