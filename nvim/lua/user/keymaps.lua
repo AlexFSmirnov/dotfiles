@@ -150,6 +150,7 @@ map("n", "<leader>fi", "<cmd>Telescope lsp_incoming_calls<cr>", { desc = "Find i
 map("n", "<leader>fo", "<cmd>Telescope lsp_outgoing_calls<cr>", { desc = "Find outgoing calls" })
 map("n", "<leader>ft", find_terminals, { desc = "Find terminals" })
 map("n", "<leader>fc", find_terminals, { desc = "Find terminals" })
+map("n", "<leader>fl", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
 
 -- Git
 map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Blame line" })

@@ -44,7 +44,7 @@ return {
       "lukas-reineke/lsp-format.nvim",
     },
     config = function()
-      local on_attach = require("lsp-format").on_attach
+      local lsp_format_on_attach = require("lsp-format").on_attach
 
       -- lsp_zero defaults ----------------------------------------------------
       local lsp_zero = require("lsp-zero")
@@ -107,6 +107,7 @@ return {
           }),
 
           lspconfig.jsonls.setup({
+            on_attach = lsp_format_on_attach,
             settings = {
               json = {
                 schemas = require("schemastore").json.schemas({
@@ -120,7 +121,6 @@ return {
           }),
 
           lspconfig.tsserver.setup({
-            on_attach = on_attach,
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
             cmd = { "typescript-language-server", "--stdio" },
@@ -136,7 +136,7 @@ return {
           }),
 
           lspconfig.eslint.setup({
-            on_attach = on_attach,
+            on_attach = lsp_format_on_attach,
             filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
             settings = {
               workingDirectory = {

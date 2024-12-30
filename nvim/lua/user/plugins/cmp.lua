@@ -9,12 +9,14 @@ return {
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "VonHeikement/lsp-zero.nvim",
+    "supermaven-inc/supermaven-nvim",
     },
     config = function()
       require("lsp-zero.cmp").extend({})
 
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local suggestion = require('supermaven-nvim.completion_preview')
       require("luasnip.loaders.from_lua").load({ paths = { "~/.config/nvim/lua/user/snippets/" } })
 
       local kind_icons = {
@@ -52,9 +54,27 @@ return {
       local cmp_action = require("lsp-zero.cmp").action()
       local cmp_mapping = cmp.mapping
 
-      local tab = cmp_mapping(function(fallback)
+      local jumpOrTab = cmp_mapping(function(fallback)
         if luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
+        elseif cmp.visible() then
+          cmp.confirm(confirmOpts)
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
+      local cmpConfirm = cmp_mapping(function(fallback)
+        if cmp.visible() then
+          cmp.confirm(confirmOpts)
+        else
+          fallback()
+        end
+      end, { "i", "s" })
+
+      local suggestionOrConfirm = cmp_mapping(function(fallback)
+        if suggestion.has_suggestion() then
+          suggestion.on_accept_suggestion()
         elseif cmp.visible() then
           cmp.confirm(confirmOpts)
         else
@@ -77,15 +97,9 @@ return {
           ["<A-j>"] = cmp_mapping.select_next_item(),
           ["<C-d>"] = cmp_mapping.scroll_docs(-4),
           ["<C-f>"] = cmp_mapping.scroll_docs(4),
-          ["<CR>"] = cmp_mapping(function(fallback)
-            if luasnip.expand_or_jumpable() then
-              cmp.confirm(confirmOpts)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ["<Tab>"] = tab,
-          ["<A-o>"] = tab,
+          ["<CR>"] = cmpConfirm,
+          ["<Tab>"] = jumpOrTab,
+          ["<A-o>"] = suggestionOrConfirm,
           ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
         }),
         formatting = {
@@ -108,6 +122,7 @@ return {
           { name = "buffer" },
           { name = "path" },
           { name = "tailwindcss" },
+          { name = "supermaven "},
         },
       })
     end,
