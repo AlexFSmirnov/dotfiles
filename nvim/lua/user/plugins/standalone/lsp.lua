@@ -29,15 +29,15 @@ return {
     "lbrayner/vim-rzip",
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     config = true,
   },
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "b0o/schemastore.nvim",

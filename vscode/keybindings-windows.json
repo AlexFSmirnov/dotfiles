@@ -1,18 +1,42 @@
 // Place your key bindings in this file to override the defaults
 [
-    // General
+    // Remove default commands
     {
-        "key": "ctrl+alt+space",
-        "command": "editor.action.triggerSuggest",
-        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+        "key": "ctrl+e",
+        "command": "-composer.showBackgroundAgentHistory",
+        "when": "backgroundComposerEnabled || showBackgroundAgentHistoryAction"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "-aipopup.action.modal.generate",
+        "when": "editorFocus && !composerBarIsVisible"
+    },
+
+    // Editor scrolling
+    {
+        "key": "ctrl+j",
+        "command": "editorScroll",
+        "args": {
+            "to": "down",
+            "by": "line",
+            "value": 5,
+            "revealCursor": true
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "editorScroll",
+        "args": {
+            "to": "up",
+            "by": "line",
+            "value": 5,
+            "revealCursor": true
+        },
+        "when": "editorTextFocus"
     },
 
     // Terminal/editor directional navigation keys
-    {
-        "key": "ctrl+space",
-        "command": "workbench.action.terminal.focus",
-        "when": "editorTextFocus"
-    },
     {
         "key": "alt+j",
         "command": "workbench.action.focusPanel",
@@ -41,7 +65,7 @@
     {
         "key": "alt+k",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "!editorTextFocus"
+        "when": "!editorTextFocus || inOutput"
     },
     {
         "key": "alt+h",
@@ -52,6 +76,80 @@
         "key": "alt+l",
         "command": "workbench.action.terminal.focusNextPane",
         "when": "terminalFocus"
+    },
+
+    // Bottom panel navigation
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "problemFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.output.toggleOutput",
+        "when": "problemFocus"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.actions.view.problems",
+        "when": "inOutput"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.panel.repl.view.focus",
+        "when": "inOutput"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.output.toggleOutput",
+        "when": "inDebugRepl"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "inDebugRepl"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.debug.action.toggleRepl",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.actions.view.problems",
+        "when": "terminalFocus"
+    },
+
+    // Tab navigation
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.openPreviousRecentlyUsedEditor",
+        "when": "!problemFocus && !inOutput && !inDebugRepl && !terminalFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.openNextRecentlyUsedEditor",
+        "when": "!problemFocus && !inOutput && !inDebugRepl && !terminalFocus"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+        "when": "!problemFocus && !inOutput && !inDebugRepl && !terminalFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
+        "when": "!problemFocus && !inOutput && !inDebugRepl && !terminalFocus"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     },
 
     // Editor split control
@@ -88,18 +186,18 @@
         "when": "terminalFocus"
     },
     {
+        "key": "ctrl+a c",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalFocus"
+    },
+    {
         "key": "ctrl+a d",
         "command": "workbench.action.terminal.kill",
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+alt+d",
-        "command": "workbench.action.terminal.focus",
-        "when": "inDebugRepl"
-    },
-    {
-        "key": "ctrl+alt+d",
-        "command": "workbench.panel.repl.view.focus",
+        "key": "ctrl+a x",
+        "command": "workbench.action.terminal.kill",
         "when": "terminalFocus"
     },
     {
@@ -108,41 +206,118 @@
         "when": "inDebugRepl"
     },
 
-    // GitHub Copilot bindings
+    // Sidebar navigation
     {
-        "key": "ctrl+i",
-        "command": "interactiveEditor.start",
-        "when": "!editorReadonly"
-    },
-    {
-        "key": "ctrl+i",
-        "command": "-interactiveEditor.start",
-        "when": "interactiveEditorHasProvider && !editorReadonly"
-    },
-    {
-        "key": "ctrl+alt+i",
-        "command": "workbench.panel.interactiveSession.view.copilot.focus",
-        "when": "!inChat"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.chat.clear",
-        "when": "inChat"
-    },
-    {
-        "key": "win+l",
-        "command": "-workbench.action.chat.clear",
-        "when": "inChat"
-    },
-    {
-        "key": "ctrl+alt+i",
+        "key": "alt+l",
         "command": "workbench.action.focusActiveEditorGroup",
-        "when": "inChat"
+        "when": "filesExplorerFocus || searchViewletFocus || (workbench.scm.visible && view.workbench.scm.visible && !editorFocus)"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusSideBar",
+        "when": "editorTextFocus && activeEditorGroupIndex == 1"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.scm.focus",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.findInFiles",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.view.explorer",
+        "when": "searchViewletFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.scm.focus",
+        "when": "searchViewletFocus"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.findInFiles",
+        "when": "(workbench.scm.visible && view.workbench.scm.visible)"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.view.explorer",
+        "when": "(workbench.scm.visible && view.workbench.scm.visible)"
     },
 
-    // Bind ctrl+alt+f for ESLint autofix, unbind from everywhere else
+    // Dialog navigation
     {
-        "key": "ctrl+alt+f",
-        "command": "eslint.executeAutofix"
+        "key": "alt+j",
+        "command": "workbench.action.quickOpenNavigateNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.quickOpenNavigatePrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+o",
+        "command": "workbench.action.quickOpen",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+q",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+
+    // Autocomplete navigation
+    {
+        "key": "alt+j",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "alt+o",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+
+    // References navigation
+    {
+        "key": "q",
+        "command": "closeReferenceSearch",
+        "when": "referenceSearchVisible"
+    },
+    {
+        "key": "alt+q",
+        "command": "closeReferenceSearch",
+        "when": "referenceSearchVisible"
+    },
+
+    // Cursor settings
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "composerFocused"
+    },
+    {
+        "key": "alt+l",
+        "command": "aichat.newchataction",
+        "when": "!composerFocused && editorFocus && activeEditorGroupLast"
+    },
+    {
+        "key": "alt+q",
+        "command": "aichat.close-sidebar",
+        "when": "composerFocused"
+    },
+    {
+        "key": "alt-q",
+        "command": "workbench.action.closeActiveEditorPromptBars",
+        "when": "editorHasPromptBar && editorPromptBarFocused"
     }
 ]

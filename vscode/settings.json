@@ -1,4 +1,17 @@
 {
+    "window.commandCenter": 1,
+    "workbench.colorTheme": "Default Dark+",
+    "makefile.configureOnOpen": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+    "vscode-neovim.useWSL": true,
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape"
+        }
+    },
     "files.eol": "\n",
     "files.exclude": {
         "**/.git": false,
@@ -15,84 +28,6 @@
         "typescriptreact"
     ],
     "git.confirmSync": false,
-    "vim.useSystemClipboard": true,
-
-    "vim.normalModeKeyBindings": [
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
-        },
-        {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["z", "t"],
-            "after": ["z", "a"]
-        },
-        {
-            "before": [";"],
-            "after": [":"]
-        },
-        {
-            "before": ["H"],
-            "after": ["^"]
-        },
-        {
-            "before": ["L"],
-            "after": ["$"]
-        },
-        {
-            "before": ["d", "H"],
-            "after": ["d", "^"]
-        },
-        {
-            "before": ["d", "L"],
-            "after": ["d", "$"]
-        }
-    ],
-    "vim.visualModeKeyBindings": [
-        {
-            "before": ["j"],
-            "after": ["g", "j"]
-        },
-        {
-            "before": ["k"],
-            "after": ["g", "k"]
-        },
-        {
-            "before": ["H"],
-            "after": ["^"]
-        },
-        {
-            "before": ["L"],
-            "after": ["$"]
-        },
-        {
-            "before": ["z", "z"],
-            "after": ["z", "f"]
-        },
-        {
-            "before": ["v", "v"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<C-j>"],
-            "after": ["<C-e>"]
-        },
-        {
-            "before": ["<C-k>"],
-            "after": ["<C-y>"]
-        }
-    ],
 
     "terminal.integrated.windowsEnableConpty": false,
     "editor.codeLens": true,
@@ -103,23 +38,6 @@
     "javascript.updateImportsOnFileMove.enabled": "never",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "python.languageServer": "Pylance",
-    "remote.SSH.remotePlatform": {
-        "51.15.210.126": "linux",
-        "alexfsmirnov.com": "linux",
-        "65.108.32.141": "linux"
-    },
-    "dart.previewLsp": true,
-    "[dart]": {
-        "editor.formatOnSave": true,
-        "editor.formatOnType": true,
-        "editor.rulers": [120],
-        "editor.selectionHighlight": false,
-        "editor.suggest.snippetsPreventQuickSuggestions": false,
-        "editor.suggestSelection": "first",
-        "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
-    },
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
@@ -129,9 +47,8 @@
         "default": "right",
         "jupyter-notebook": "left"
     },
-    "python.analysis.typeCheckingMode": "strict",
+
     "editor.inlineSuggest.enabled": true,
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
 
@@ -140,21 +57,13 @@
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "[markdown]": {
         "editor.formatOnSave": false
     },
-    "githubPullRequests.pullBranch": "never",
 
     "files.associations": {
         "**/.azure/**/*.yml": "azure-pipelines"
-    },
-    "redhat.telemetry.enabled": false,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": false,
-        "markdown": false
     },
 
     "terminal.integrated.smoothScrolling": true,
@@ -163,6 +72,16 @@
         "editor.formatOnType": true
     },
     "terminal.integrated.defaultProfile.linux": "zsh",
-    "workbench.colorTheme": "Default Dark+",
-    "chat.experimental.quickQuestion.enable": true
+    "eslint.format.enable": true,
+    "workbench.editor.showTabs": "none",
+    "editor.showFoldingControls": "always",
+    "terminal.integrated.commandsToSkipShell": [
+        "workbench.debug.action.toggleRepl",
+        "workbench.actions.view.problems",
+        "workbench.panel.repl.view.focus"
+    ],
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.smoothScrolling": true
 }
