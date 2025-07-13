@@ -119,6 +119,11 @@
         "command": "workbench.actions.view.problems",
         "when": "terminalFocus"
     },
+    {
+        "key": "alt+q",
+        "command": "workbench.action.togglePanel",
+        "when": "problemFocus || inOutput || inDebugRepl || terminalFocus"
+    },
 
     // Tab navigation
     {

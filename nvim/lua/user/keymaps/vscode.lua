@@ -16,6 +16,9 @@ Map("n", "<leader>fp", "<cmd>lua require('vscode').action('workbench.action.show
 Map("n", "<leader>fg", "<cmd>lua require('vscode').action('workbench.action.findInFiles')<CR>", { desc = "File search" })
 Map("n", "<leader>gd", "<cmd>lua require('vscode').action('workbench.scm.focus')<CR>", { desc = "Focus source control" })
 
+-- Bottom panel
+Map("n", "<leader>cj", "<cmd>lua require('vscode').action('workbench.action.togglePanel')<CR>", { desc = "Focus panel" })
+
 -- Folding
 Map("v", "zc", function()
   require("vscode").action("editor.createFoldingRangeFromSelection")
