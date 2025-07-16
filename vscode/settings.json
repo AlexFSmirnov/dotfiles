@@ -63,7 +63,8 @@
     },
 
     "files.associations": {
-        "**/.azure/**/*.yml": "azure-pipelines"
+        "**/.azure/**/*.yml": "azure-pipelines",
+        "*.inc": "cpp"
     },
 
     "terminal.integrated.smoothScrolling": true,
@@ -78,10 +79,17 @@
     "terminal.integrated.commandsToSkipShell": [
         "workbench.debug.action.toggleRepl",
         "workbench.actions.view.problems",
-        "workbench.panel.repl.view.focus"
+        "workbench.panel.repl.view.focus",
+        "workbench.action.focusSideBar"
     ],
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.smoothScrolling": true
+    "editor.smoothScrolling": true,
+    "editor.inlayHints.enabled": "off",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.git": true
+    },
+    "editor.minimap.enabled": true
 }

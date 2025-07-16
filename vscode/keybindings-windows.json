@@ -12,6 +12,13 @@
         "when": "editorFocus && !composerBarIsVisible"
     },
 
+    // Close git history
+    {
+        "key": "alt+q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "gitlens.views.fileHistory.active"
+    },
+
     // Editor scrolling
     {
         "key": "ctrl+j",
@@ -67,16 +74,16 @@
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "!editorTextFocus || inOutput"
     },
-    {
-        "key": "alt+h",
-        "command": "workbench.action.terminal.focusPreviousPane",
-        "when": "terminalFocus"
-    },
-    {
-        "key": "alt+l",
-        "command": "workbench.action.terminal.focusNextPane",
-        "when": "terminalFocus"
-    },
+    // {
+    //     "key": "alt+h",
+    //     "command": "workbench.action.terminal.focusPreviousPane",
+    //     "when": "terminalFocus"
+    // },
+    // {
+    //     "key": "alt+l",
+    //     "command": "workbench.action.terminal.focusNextPane",
+    //     "when": "terminalFocus"
+    // },
 
     // Bottom panel navigation
     {
@@ -220,7 +227,12 @@
     {
         "key": "alt+h",
         "command": "workbench.action.focusSideBar",
-        "when": "editorTextFocus && activeEditorGroupIndex == 1"
+        "when": "filesExplorerFocus || searchViewletFocus || (workbench.scm.visible && view.workbench.scm.visible && !editorFocus)"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusSideBar",
+        "when": "sideBarVisible && ((editorTextFocus && activeEditorGroupIndex == 1) || terminalFocus || inOutput || inDebugRepl || problemFocus)"
     },
     {
         "key": "shift+alt+h",
@@ -251,6 +263,16 @@
         "key": "shift+alt+l",
         "command": "workbench.view.explorer",
         "when": "(workbench.scm.visible && view.workbench.scm.visible)"
+    },
+    {
+        "key": "alt-o",
+        "command": "explorer.openAndPassFocus",
+        "when": "filesExplorerFocus"
+    },
+    {
+        "key": "o",
+        "command": "explorer.openAndPassFocus",
+        "when": "filesExplorerFocus && !inputFocus && !inputBoxFocus"
     },
 
     // Dialog navigation
@@ -324,5 +346,28 @@
         "key": "alt-q",
         "command": "workbench.action.closeActiveEditorPromptBars",
         "when": "editorHasPromptBar && editorPromptBarFocused"
+    },
+    {
+        "key": "alt+o",
+        "command": "editor.action.acceptCursorTabSuggestion",
+        "when": "cpp.shouldAcceptTab"
+    },
+    {
+        "key": "tab",
+        "command": "editor.action.acceptCursorTabSuggestion",
+        "when": "cpp.shouldAcceptTab && !editorHoverFocused && !editorTabMovesFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "tab",
+        "command": "-editor.action.acceptCursorTabSuggestion"
+    },
+    {
+        "key": "alt+h",
+        "command": "-gitlens.showQuickFileHistory",
+        "when": "!gitlens:disabled && config.gitlens.keymap == 'alternate'"
+    },
+    {
+        "key": "alt+h",
+        "command": "-git.viewFileHistory"
     }
 ]
